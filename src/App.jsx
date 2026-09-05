@@ -1,5 +1,143 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, createContext, useContext } from 'react'
 import './App.css'
+
+/* ---------- Languages: English / Kiswahili ---------- */
+const STR = {
+  en: {
+    'nav.home': 'Home', 'nav.products': 'Products', 'nav.perfume': 'Perfume', 'nav.sets': 'Sets',
+    'nav.orders': 'Orders', 'nav.cart': 'Cart', 'nav.login': 'Log in', 'nav.register': 'Register',
+    'nav.myOrders': 'My Orders', 'nav.logout': 'Log out', 'nav.account': 'Account', 'nav.menu': 'Toggle menu',
+    'hero.eyebrow': 'Cruelty-Free · Clean Beauty', 'hero.a': 'Beauty that', 'hero.glow': 'glows', 'hero.b': 'from within',
+    'hero.lead': 'Premium skincare and makeup crafted with clean, botanical ingredients — designed to make every skin day its best day.',
+    'hero.shop': 'Shop Collection', 'hero.story': 'Our Story',
+    'hero.customers': 'Happy customers', 'hero.rating': 'Average rating', 'hero.vegan': 'Vegan formulas',
+    'home.collectionEyebrow': 'Shop', 'home.collectionTitle': 'The collection', 'home.viewAll': 'View All Products',
+    'home.setsEyebrow': 'Curated Sets', 'home.setsTitle': 'Glow together, save more', 'home.viewAllSets': 'View All Sets',
+    'search.products': 'Search by name or type…', 'search.perfumes': 'Search perfumes by name or brand…',
+    'view.grid': 'Grid view', 'view.list': 'List view', 'common.items': 'items', 'common.item': 'item',
+    'common.scents': 'scents', 'common.scent': 'scent', 'common.clearAll': 'Clear search & filters',
+    'card.add': 'Add to Bag', 'card.inbag': 'In Bag ✓', 'card.wishAdd': 'Add to wishlist', 'card.wishRemove': 'Remove from wishlist',
+    'shopAll.eyebrow': 'Shop All', 'shopAll.title': 'Every product, one place',
+    'shopAll.sub': 'Browse the full collection by category. Click a product to see details and order.',
+    'sets.eyebrow': 'Curated Sets', 'sets.title': 'Bundles made to glow together',
+    'sets.sub': "Thoughtfully paired products at a better price. Click a set to see what's inside.",
+    'sets.view': 'View set →', 'set.products': 'products',
+    'perfume.eyebrow': 'Fragrance', 'perfume.title': 'The perfume collection',
+    'perfume.sub': 'Designer & Arabian icons for him, her and both. Filter, then click a perfume to see details and order.',
+    'perfume.setsEyebrow': 'Perfume Sets', 'perfume.setsTitle': 'Gift sets & layered collections',
+    'cart.title': 'Shopping cart', 'cart.eyebrow': 'Your bag', 'cart.empty': 'Your bag is empty — time to treat yourself.',
+    'cart.browse': 'Browse Products', 'cart.summary': 'Summary', 'cart.subtotal': 'Subtotal', 'cart.shipping': 'Shipping',
+    'cart.free': 'Free', 'cart.total': 'Total', 'cart.checkout': 'Proceed to Checkout', 'cart.continue': '← Continue shopping',
+    'cart.moreForFree': 'more for free shipping.', 'cart.add': 'Add',
+    'co.eyebrow': 'Checkout', 'co.title': 'Almost there', 'co.summary': 'Order summary', 'co.delivery': 'Delivery details',
+    'co.name': 'Full name', 'co.phone': 'Phone number', 'co.address': 'Delivery address', 'co.city': 'City / Region',
+    'co.pay': 'Pay Now', 'co.secure': '🔒 Secure checkout · SSL encrypted', 'co.back': '← Back to cart',
+    'co.qty': 'Qty', 'co.success': 'Payment successful!', 'co.thanks': 'Continue Shopping',
+    'orders.eyebrow': 'Track & history', 'orders.title': 'Your orders',
+    'orders.sub': 'Every product order & service booking, with live status. Click any order for full details.',
+    'orders.empty': 'No orders yet — your future favourites are waiting.', 'orders.shop': 'Shop now',
+    'orders.details': 'Details →', 'orders.back': '← Back to my orders',
+    'od.items': 'Items', 'od.subtotal': 'Subtotal', 'od.totalPaid': 'Total paid', 'od.total': 'Total',
+    'od.delivery': 'Delivery details', 'od.booking': 'Booking details', 'od.shipping': 'Shipping', 'od.fee': 'Booking fee',
+    'od.free': 'Free', 'od.paidVia': 'Paid via', 'od.help': 'Need help with this', 'od.order': 'order', 'od.bookingWord': 'booking',
+    'od.helpSub': '— we reply within a few hours.', 'od.mention': 'Mention',
+    'svc.eyebrow': 'Our Services', 'svc.title': 'Advice + machine treatments, in store',
+    'svc.sub': 'Not sure what your skin needs? Get scanned, treated and advised — then shop only what works for you.',
+    'foot.about': 'About', 'foot.products': 'Products', 'foot.reviews': 'Reviews', 'foot.contact': 'Contact',
+    'foot.rights': 'All rights reserved.',
+    'contact.eyebrow': 'Contact', 'contact.title': "Let's talk beauty",
+    'contact.sub': 'Questions about shades, orders, or wholesale partnerships? Our team replies within one business day.',
+    'contact.send': 'Send Message', 'contact.name': 'Your name', 'contact.email': 'Email address', 'contact.msg': 'How can we help?',
+    'auth.back': '← Back to shop', 'auth.welcome': 'Wellcome Back', 'auth.loginSub': "Let's login to grab amazing deal",
+    'auth.create': 'Create Account', 'auth.joinSub': "Let's join to grab amazing deals",
+    'auth.google': 'Continue with Google', 'auth.apple': 'Continue with Apple', 'auth.or': 'Or',
+    'auth.email': 'Email', 'auth.password': 'Password', 'auth.fullname': 'Full name',
+    'auth.remember': 'Remember me', 'auth.forgot': 'Forget Password?', 'auth.loginBtn': 'Login', 'auth.signupBtn': 'Sign Up',
+    'auth.have': "Don't have an account?", 'auth.have2': 'Already have an account?',
+    'about.eyebrow': 'About Us', 'about.title': 'Luxury beauty, honestly made',
+    'rev.eyebrow': 'Reviews', 'rev.title': 'Loved by thousands',
+    'lang.label': 'Language', 'lang.en': 'English', 'lang.sw': 'Kiswahili',
+    'corner.cart': 'Open cart', 'corner.items': 'items',
+    'detail.backShop': '← Back to shop', 'detail.backSets': '← Back to sets', 'detail.backPerfume': '← Back to perfumes',
+    'detail.qty': 'Quantity', 'detail.total': 'Total', 'detail.place': 'Place Order',
+    'detail.processing': 'Processing payment…', 'detail.confirmed': 'Order confirmed!',
+    'detail.continue': 'Continue Shopping', 'detail.secure': '🔒 Secure checkout · SSL encrypted',
+    'detail.inside': "What's inside this set", 'detail.indiv': 'Individual total', 'detail.setPrice': 'Set price',
+    'detail.added': 'Added to Bag ✓', 'detail.addSet': 'Add Set to Bag',
+  },
+  sw: {
+    'nav.home': 'Nyumbani', 'nav.products': 'Bidhaa', 'nav.perfume': 'Manukato', 'nav.sets': 'Seti',
+    'nav.orders': 'Oda', 'nav.cart': 'Kikapu', 'nav.login': 'Ingia', 'nav.register': 'Jisajili',
+    'nav.myOrders': 'Oda Zangu', 'nav.logout': 'Toka', 'nav.account': 'Akaunti', 'nav.menu': 'Fungua menyu',
+    'hero.eyebrow': 'Bila Ukatili · Urembo Safi', 'hero.a': 'Urembo unao', 'hero.glow': "ng'aa", 'hero.b': 'kutoka ndani',
+    'hero.lead': 'Vipodozi bora vya ngozi na urembo vilivyotengenezwa kwa viungo safi vya asili — ili kila siku ngozi yako ing’ae.',
+    'hero.shop': 'Angalia Bidhaa', 'hero.story': 'Hadithi Yetu',
+    'hero.customers': 'Wateja wenye furaha', 'hero.rating': 'Ukadiriaji', 'hero.vegan': 'Asilia 100%',
+    'home.collectionEyebrow': 'Duka', 'home.collectionTitle': 'Bidhaa zetu', 'home.viewAll': 'Angalia Bidhaa Zote',
+    'home.setsEyebrow': 'Seti Maalum', 'home.setsTitle': 'Ng’aa pamoja, okoa zaidi', 'home.viewAllSets': 'Angalia Seti Zote',
+    'search.products': 'Tafuta kwa jina au aina…', 'search.perfumes': 'Tafuta manukato kwa jina…',
+    'view.grid': 'Mwonekano wa gridi', 'view.list': 'Mwonekano wa orodha', 'common.items': 'bidhaa', 'common.item': 'bidhaa',
+    'common.scents': 'manukato', 'common.scent': 'manukato', 'common.clearAll': 'Futa utafutaji',
+    'card.add': 'Weka Kikapuni', 'card.inbag': 'Kikapuni ✓', 'card.wishAdd': 'Weka kwenye orodha', 'card.wishRemove': 'Ondoa kwenye orodha',
+    'shopAll.eyebrow': 'Duka Zima', 'shopAll.title': 'Bidhaa zote mahali pamoja',
+    'shopAll.sub': 'Angalia bidhaa zote kwa kategoria. Bonyeza bidhaa kuona maelezo na kuagiza.',
+    'sets.eyebrow': 'Seti Maalum', 'sets.title': 'Vifurushi vilivyopangwa kung’aa pamoja',
+    'sets.sub': 'Bidhaa zilizochaguliwa kwa bei nafuu. Bonyeza seti kuona kilichomo.',
+    'sets.view': 'Angalia seti →', 'set.products': 'bidhaa',
+    'perfume.eyebrow': 'Manukato', 'perfume.title': 'Manukato yetu',
+    'perfume.sub': 'Manukato maarufu kwa wanaume, wanawake na wote. Chuja, kisha bonyeza kuona maelezo.',
+    'perfume.setsEyebrow': 'Seti za Manukato', 'perfume.setsTitle': 'Seti za zawadi',
+    'cart.title': 'Kikapu', 'cart.eyebrow': 'Kikapu chako', 'cart.empty': 'Kikapu chako kiko wazi — jipatie kitu kizuri.',
+    'cart.browse': 'Angalia Bidhaa', 'cart.summary': 'Muhtasari', 'cart.subtotal': 'Jumla ndogo', 'cart.shipping': 'Usafiri',
+    'cart.free': 'Bure', 'cart.total': 'Jumla', 'cart.checkout': 'Endelea Kulipa', 'cart.continue': '← Endelea kununua',
+    'cart.moreForFree': 'ili upate usafiri bure.', 'cart.add': 'Ongeza',
+    'co.eyebrow': 'Malipo', 'co.title': 'Karibu kumaliza', 'co.summary': 'Muhtasari wa oda', 'co.delivery': 'Maelezo ya utoaji',
+    'co.name': 'Jina kamili', 'co.phone': 'Namba ya simu', 'co.address': 'Anwani ya utoaji', 'co.city': 'Mji / Mkoa',
+    'co.pay': 'Lipa Sasa', 'co.secure': '🔒 Malipo salama · SSL', 'co.back': '← Rudi kikapuni',
+    'co.qty': 'Idadi', 'co.success': 'Malipo yamefanikiwa!', 'co.thanks': 'Endelea Kununua',
+    'orders.eyebrow': 'Fuatilia & historia', 'orders.title': 'Oda zako',
+    'orders.sub': 'Kila oda na huduma ulizoweka, pamoja na hali yake. Bonyeza oda kuona maelezo.',
+    'orders.empty': 'Huna oda bado — vipendwa vyako vinakusubiri.', 'orders.shop': 'Nunua Sasa',
+    'orders.details': 'Maelezo →', 'orders.back': '← Rudi kwenye oda',
+    'od.items': 'Vitu', 'od.subtotal': 'Jumla ndogo', 'od.totalPaid': 'Jumla iliyolipwa', 'od.total': 'Jumla',
+    'od.delivery': 'Maelezo ya utoaji', 'od.booking': 'Maelezo ya huduma', 'od.shipping': 'Usafiri', 'od.fee': 'Ada ya huduma',
+    'od.free': 'Bure', 'od.paidVia': 'Imelipwa kwa', 'od.help': 'Unahitaji msaada na', 'od.order': 'oda hii', 'od.bookingWord': 'huduma hii',
+    'od.helpSub': '— tunajibu ndani ya masaa machache.', 'od.mention': 'Taja',
+    'svc.eyebrow': 'Huduma Zetu', 'svc.title': 'Ushauri + matibabu ya mashine, dukani',
+    'svc.sub': 'Hujui ngozi yako inahitaji nini? Pimwa, tibiwa na shauriwa — kisha nunua kinachokufaa.',
+    'foot.about': 'Kuhusu', 'foot.products': 'Bidhaa', 'foot.reviews': 'Maoni', 'foot.contact': 'Mawasiliano',
+    'foot.rights': 'Haki zote zimehifadhiwa.',
+    'contact.eyebrow': 'Mawasiliano', 'contact.title': 'Tuongee kuhusu urembo',
+    'contact.sub': 'Maswali kuhusu rangi, oda, au ubia? Timu yetu itajibu ndani ya siku moja ya kazi.',
+    'contact.send': 'Tuma Ujumbe', 'contact.name': 'Jina lako', 'contact.email': 'Barua pepe', 'contact.msg': 'Tunawezaje kukusaidia?',
+    'auth.back': '← Rudi dukani', 'auth.welcome': 'Karibu Tena', 'auth.loginSub': 'Ingia kupata ofa nzuri',
+    'auth.create': 'Fungua Akaunti', 'auth.joinSub': 'Jiunge kupata ofa nzuri',
+    'auth.google': 'Endelea na Google', 'auth.apple': 'Endelea na Apple', 'auth.or': 'Au',
+    'auth.email': 'Barua pepe', 'auth.password': 'Nenosiri', 'auth.fullname': 'Jina kamili',
+    'auth.remember': 'Nikumbuke', 'auth.forgot': 'Umesahau Nenosiri?', 'auth.loginBtn': 'Ingia', 'auth.signupBtn': 'Jisajili',
+    'auth.have': 'Huna akaunti?', 'auth.have2': 'Una akaunti tayari?',
+    'about.eyebrow': 'Kuhusu Sisi', 'about.title': 'Urembo wa kifahari, wa kweli',
+    'rev.eyebrow': 'Maoni', 'rev.title': 'Wanapendwa na maelfu',
+    'lang.label': 'Lugha', 'lang.en': 'English', 'lang.sw': 'Kiswahili',
+    'corner.cart': 'Fungua kikapu', 'corner.items': 'vitu',
+    'detail.backShop': '← Rudi dukani', 'detail.backSets': '← Rudi kwenye seti', 'detail.backPerfume': '← Rudi kwenye manukato',
+    'detail.qty': 'Idadi', 'detail.total': 'Jumla', 'detail.place': 'Weka Oda',
+    'detail.processing': 'Inashughulikia malipo…', 'detail.confirmed': 'Oda imethibitishwa!',
+    'detail.continue': 'Endelea Kununua', 'detail.secure': '🔒 Malipo salama · SSL',
+    'detail.inside': 'Kilichomo', 'detail.indiv': 'Jumla ya vitu', 'detail.setPrice': 'Bei ya seti',
+    'detail.added': 'Kikapuni ✓', 'detail.addSet': 'Weka Seti Kikapuni',
+  },
+}
+
+const LangCtx = createContext({ lang: 'en', setLang: () => {}, t: (k) => k })
+const useLang = () => useContext(LangCtx)
+function loadLang() {
+  try {
+    return localStorage.getItem('asma_lang') === 'sw' ? 'sw' : 'en'
+  } catch {
+    return 'en'
+  }
+}
 
 const IMG = {
   sunscreen:
@@ -798,13 +936,14 @@ function loadStore(key) {
 function Navbar({ cartCount, user, onCart, onHome, onProducts, onPerfume, onSets, onOrders, onAuth, onLogout }) {
   const [open, setOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const { t } = useLang()
 
   const navLinks = [
-    { label: 'Home', action: onHome },
-    { label: 'Products', action: onProducts },
-    { label: 'Perfume', action: onPerfume },
-    { label: 'Sets', action: onSets },
-    { label: 'Orders', action: onOrders },
+    { label: t('nav.home'), action: onHome },
+    { label: t('nav.products'), action: onProducts },
+    { label: t('nav.perfume'), action: onPerfume },
+    { label: t('nav.sets'), action: onSets },
+    { label: t('nav.orders'), action: onOrders },
   ]
 
   return (
@@ -846,13 +985,13 @@ function Navbar({ cartCount, user, onCart, onHome, onProducts, onPerfume, onSets
               setOpen(false)
             }}
           >
-            Cart ({cartCount})
+            {t('nav.cart')} ({cartCount})
           </a>
 
           <div className="profile-wrap">
             <button
               className="profile-btn"
-              aria-label="Account"
+              aria-label={t('nav.account')}
               onClick={() => setMenuOpen(!menuOpen)}
             >
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -868,13 +1007,13 @@ function Navbar({ cartCount, user, onCart, onHome, onProducts, onPerfume, onSets
                       <strong>{user.name}</strong>
                       <span>{user.email}</span>
                     </div>
-                    <button onClick={() => { onOrders(); setMenuOpen(false); setOpen(false) }}>My Orders</button>
-                    <button onClick={() => { onLogout(); setMenuOpen(false); setOpen(false) }}>Log out</button>
+                    <button onClick={() => { onOrders(); setMenuOpen(false); setOpen(false) }}>{t('nav.myOrders')}</button>
+                    <button onClick={() => { onLogout(); setMenuOpen(false); setOpen(false) }}>{t('nav.logout')}</button>
                   </>
                 ) : (
                   <>
-                    <button onClick={() => { onAuth('login'); setMenuOpen(false); setOpen(false) }}>Log in</button>
-                    <button onClick={() => { onAuth('register'); setMenuOpen(false); setOpen(false) }}>Register</button>
+                    <button onClick={() => { onAuth('login'); setMenuOpen(false); setOpen(false) }}>{t('nav.login')}</button>
+                    <button onClick={() => { onAuth('register'); setMenuOpen(false); setOpen(false) }}>{t('nav.register')}</button>
                   </>
                 )}
               </div>
@@ -883,7 +1022,7 @@ function Navbar({ cartCount, user, onCart, onHome, onProducts, onPerfume, onSets
         </nav>
         <button
           className={`hamburger ${open ? 'active' : ''}`}
-          aria-label="Toggle menu"
+          aria-label={t('nav.menu')}
           onClick={() => setOpen(!open)}
         >
           <span />
