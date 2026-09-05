@@ -37,7 +37,7 @@ const STR = {
     'orders.sub': 'Every product order & service booking, with live status. Click any order for full details.',
     'orders.empty': 'No orders yet — your future favourites are waiting.', 'orders.shop': 'Shop now',
     'orders.details': 'Details →', 'orders.back': '← Back to my orders',
-    'od.items': 'Items', 'od.subtotal': 'Subtotal', 'od.totalPaid': 'Total paid', 'od.total': 'Total',
+    'od.title': 'Order details', 'od.items': 'Items', 'od.subtotal': 'Subtotal', 'od.totalPaid': 'Total paid', 'od.total': 'Total',
     'od.delivery': 'Delivery details', 'od.booking': 'Booking details', 'od.shipping': 'Shipping', 'od.fee': 'Booking fee',
     'od.free': 'Free', 'od.paidVia': 'Paid via', 'od.help': 'Need help with this', 'od.order': 'order', 'od.bookingWord': 'booking',
     'od.helpSub': '— we reply within a few hours.', 'od.mention': 'Mention',
@@ -64,6 +64,7 @@ const STR = {
     'detail.continue': 'Continue Shopping', 'detail.secure': '🔒 Secure checkout · SSL encrypted',
     'detail.inside': "What's inside this set", 'detail.indiv': 'Individual total', 'detail.setPrice': 'Set price',
     'detail.added': 'Added to Bag ✓', 'detail.addSet': 'Add Set to Bag',
+    'common.backHome': '← Back to home', 'svc.scan': 'Get a free skin scan',
   },
   sw: {
     'nav.home': 'Nyumbani', 'nav.products': 'Bidhaa', 'nav.perfume': 'Manukato', 'nav.sets': 'Seti',
@@ -99,7 +100,7 @@ const STR = {
     'orders.sub': 'Kila oda na huduma ulizoweka, pamoja na hali yake. Bonyeza oda kuona maelezo.',
     'orders.empty': 'Huna oda bado — vipendwa vyako vinakusubiri.', 'orders.shop': 'Nunua Sasa',
     'orders.details': 'Maelezo →', 'orders.back': '← Rudi kwenye oda',
-    'od.items': 'Vitu', 'od.subtotal': 'Jumla ndogo', 'od.totalPaid': 'Jumla iliyolipwa', 'od.total': 'Jumla',
+    'od.title': 'Maelezo ya oda', 'od.items': 'Vitu', 'od.subtotal': 'Jumla ndogo', 'od.totalPaid': 'Jumla iliyolipwa', 'od.total': 'Jumla',
     'od.delivery': 'Maelezo ya utoaji', 'od.booking': 'Maelezo ya huduma', 'od.shipping': 'Usafiri', 'od.fee': 'Ada ya huduma',
     'od.free': 'Bure', 'od.paidVia': 'Imelipwa kwa', 'od.help': 'Unahitaji msaada na', 'od.order': 'oda hii', 'od.bookingWord': 'huduma hii',
     'od.helpSub': '— tunajibu ndani ya masaa machache.', 'od.mention': 'Taja',
@@ -126,6 +127,7 @@ const STR = {
     'detail.continue': 'Endelea Kununua', 'detail.secure': '🔒 Malipo salama · SSL',
     'detail.inside': 'Kilichomo', 'detail.indiv': 'Jumla ya vitu', 'detail.setPrice': 'Bei ya seti',
     'detail.added': 'Kikapuni ✓', 'detail.addSet': 'Weka Seti Kikapuni',
+    'common.backHome': '← Rudi nyumbani', 'svc.scan': 'Pata scan bure ya ngozi',
   },
 }
 
@@ -1036,6 +1038,7 @@ function Navbar({ cartCount, user, onCart, onHome, onProducts, onPerfume, onSets
 
 /* ---------- Home sections ---------- */
 function Hero() {
+  const { t } = useLang()
   return (
     <section className="hero" id="top">
       <div className="hero-bg" aria-hidden="true">
@@ -1045,22 +1048,21 @@ function Hero() {
       </div>
       <div className="container hero-inner">
         <div className="hero-text">
-          <p className="eyebrow">Cruelty-Free · Clean Beauty</p>
+          <p className="eyebrow">{t('hero.eyebrow')}</p>
           <h1>
-            Beauty that <em>glows</em> from within
+            {t('hero.a')} <em>{t('hero.glow')}</em> {t('hero.b')}
           </h1>
           <p className="lead">
-            Premium skincare and makeup crafted with clean, botanical ingredients — designed to make
-            every skin day its best day.
+            {t('hero.lead')}
           </p>
           <div className="hero-actions">
-            <a href="#products" className="btn">Shop Collection</a>
-            <a href="#about" className="btn btn-outline">Our Story</a>
+            <a href="#products" className="btn">{t('hero.shop')}</a>
+            <a href="#about" className="btn btn-outline">{t('hero.story')}</a>
           </div>
           <div className="hero-stats">
-            <div><strong>50K+</strong><span>Happy customers</span></div>
-            <div><strong>4.9★</strong><span>Average rating</span></div>
-            <div><strong>100%</strong><span>Vegan formulas</span></div>
+            <div><strong>50K+</strong><span>{t('hero.customers')}</span></div>
+            <div><strong>4.9★</strong><span>{t('hero.rating')}</span></div>
+            <div><strong>100%</strong><span>{t('hero.vegan')}</span></div>
           </div>
         </div>
         <div className="hero-visual" aria-hidden="true">
@@ -1083,6 +1085,7 @@ function Hero() {
 }
 
 function About() {
+  const { t } = useLang()
   return (
     <section className="about section" id="about">
       <div className="container about-inner">
@@ -1099,8 +1102,8 @@ function About() {
           <p className="about-caption">Inside our studio & boutique</p>
         </div>
         <div className="about-text">
-          <p className="eyebrow">About Us</p>
-          <h2>Luxury beauty, honestly made</h2>
+          <p className="eyebrow">{t('about.eyebrow')}</p>
+          <h2>{t('about.title')}</h2>
           <p>
             Founded in 2019, Asma Store began with one belief: you shouldn't have to choose between
             clean ingredients and luxury results. Every formula is developed with dermatologists,
@@ -1120,6 +1123,7 @@ function About() {
 /* ---------- Product cards & detail ---------- */
 function ProductCard({ product, onAdd, onSelect, inBag }) {
   const [wished, setWished] = useState(false)
+  const { t } = useLang()
   return (
     <article
       className="product-card"
@@ -1133,7 +1137,7 @@ function ProductCard({ product, onAdd, onSelect, inBag }) {
         {product.badge && <span className="badge">{product.badge}</span>}
         <button
           type="button"
-          aria-label={wished ? 'Remove from wishlist' : 'Add to wishlist'}
+          aria-label={wished ? t('card.wishRemove') : t('card.wishAdd')}
           aria-pressed={wished}
           className={`wish-btn ${wished ? 'active' : ''}`}
           onClick={(e) => {
@@ -1165,7 +1169,7 @@ function ProductCard({ product, onAdd, onSelect, inBag }) {
               <circle cx="19" cy="21" r="1.5" />
               <path d="M2 3h3l2.6 12.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L22 7H6" />
             </svg>
-            <span>{inBag ? 'In Bag ✓' : 'Add to Bag'}</span>
+            <span>{inBag ? t('card.inbag') : t('card.add')}</span>
           </button>
         </div>
       </div>
@@ -1203,6 +1207,7 @@ function ProductDetail({ product, onBack, addOrder }) {
   const [ordered, setOrdered] = useState(null)
   const [processing, setProcessing] = useState(false)
   const [form, setForm] = useState({ name: '', phone: '', address: '', city: '', payment: 'card' })
+  const { t } = useLang()
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
   const total = product.price * qty
   const shipping = total >= FREE_SHIPPING ? 0 : SHIPPING_FEE
@@ -1233,13 +1238,13 @@ function ProductDetail({ product, onBack, addOrder }) {
         <div className="container">
           <div className="order-success">
             <span className="success-icon">✓</span>
-            <h2>Order confirmed!</h2>
+            <h2>{t('detail.confirmed')}</h2>
             <p className="order-num">Order <strong>#{ordered.num}</strong> · Total <strong>{formatPrice(ordered.total)}</strong></p>
             <p>
               Thank you, {form.name}! Your {qty} × {product.name} will be packed with care and shipped
               to {form.city || 'your address'} within 24 hours. Track it any time under "My Orders".
             </p>
-            <button className="btn" onClick={onBack}>Continue Shopping</button>
+            <button className="btn" onClick={onBack}>{t('detail.continue')}</button>
           </div>
         </div>
       </section>
@@ -1249,7 +1254,7 @@ function ProductDetail({ product, onBack, addOrder }) {
   return (
     <section className="detail section">
       <div className="container">
-        <button className="back-link" onClick={onBack}>← Back to shop</button>
+        <button className="back-link" onClick={onBack}>{t('detail.backShop')}</button>
         <div className="detail-grid">
           <div className="detail-photo">
             <img src={product.image} alt={product.name} />
@@ -1263,13 +1268,13 @@ function ProductDetail({ product, onBack, addOrder }) {
             <p className="detail-desc">{product.longDesc}</p>
 
             <div className="qty-row">
-              <label htmlFor="qty">Quantity</label>
+              <label htmlFor="qty">{t('detail.qty')}</label>
               <div className="qty-control">
                 <button type="button" onClick={() => setQty(Math.max(1, qty - 1))}>−</button>
                 <span id="qty">{qty}</span>
                 <button type="button" onClick={() => setQty(qty + 1)}>+</button>
               </div>
-              <span className="detail-total">Total: {formatPrice(total)}</span>
+              <span className="detail-total">{t('detail.total')}: {formatPrice(total)}</span>
             </div>
 
             <ul className="perks">
@@ -1294,12 +1299,12 @@ function ProductDetail({ product, onBack, addOrder }) {
 
           <form className="order-form" onSubmit={handleSubmit}>
             <div className="form-row">
-              <input name="name" placeholder="Full name" value={form.name} onChange={handleChange} required disabled={processing} />
-              <input name="phone" type="tel" placeholder="Phone number" value={form.phone} onChange={handleChange} required disabled={processing} />
+              <input name="name" placeholder={t('co.name')} value={form.name} onChange={handleChange} required disabled={processing} />
+              <input name="phone" type="tel" placeholder={t('co.phone')} value={form.phone} onChange={handleChange} required disabled={processing} />
             </div>
-            <input name="address" placeholder="Delivery address" value={form.address} onChange={handleChange} required disabled={processing} />
+            <input name="address" placeholder={t('co.address')} value={form.address} onChange={handleChange} required disabled={processing} />
             <div className="form-row">
-              <input name="city" placeholder="City / State" value={form.city} onChange={handleChange} required disabled={processing} />
+              <input name="city" placeholder={t('co.city')} value={form.city} onChange={handleChange} required disabled={processing} />
               <select name="payment" value={form.payment} onChange={handleChange} disabled={processing}>
                 <option value="card">Credit / Debit card</option>
                 <option value="mobile">Mobile money (M-Pesa, Tigo Pesa, Airtel Money)</option>
@@ -1314,13 +1319,13 @@ function ProductDetail({ product, onBack, addOrder }) {
               {processing ? (
                 <>
                   <span className="spinner" aria-hidden="true" />
-                  Processing payment…
+                  {t('detail.processing')}
                 </>
               ) : (
-                <>Place Order — {formatPrice(grandTotal)}</>
+                <>{t('detail.place')} — {formatPrice(grandTotal)}</>
               )}
             </button>
-            <p className="secure-note">🔒 Secure checkout · SSL encrypted</p>
+            <p className="secure-note">{t('detail.secure')}</p>
           </form>
         </div>
       </div>
@@ -1331,14 +1336,15 @@ function ProductDetail({ product, onBack, addOrder }) {
 /* ---------- Products section / page ---------- */
 function Products({ onAdd, onSelect, cartItems, onSeeAll }) {
   const [filter, setFilter] = useState('All')
+  const { t } = useLang()
   const categories = ['All', ...new Set(PRODUCTS.map((p) => p.category))]
   const visible = filter === 'All' ? PRODUCTS : PRODUCTS.filter((p) => p.category === filter)
   return (
     <section className="products section" id="products">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Shop</p>
-          <h2>The collection</h2>
+          <p className="eyebrow">{t('home.collectionEyebrow')}</p>
+          <h2>{t('home.collectionTitle')}</h2>
           <div className="filters">
             {categories.map((c) => (
               <button
@@ -1364,7 +1370,7 @@ function Products({ onAdd, onSelect, cartItems, onSeeAll }) {
         </div>
         {onSeeAll && (
           <div style={{ textAlign: 'center', marginTop: 40 }}>
-            <button className="btn btn-outline" onClick={onSeeAll}>View All Products</button>
+            <button className="btn btn-outline" onClick={onSeeAll}>{t('home.viewAll')}</button>
           </div>
         )}
       </div>
@@ -1383,6 +1389,7 @@ function loadShopView() {
 }
 
 function ShopToolbar({ query, onQuery, viewMode, onViewMode, filters, active, onFilter, searchLabel }) {
+  const { t } = useLang()
   return (
     <div className="shop-toolbar">
       <div className="shop-search">
@@ -1403,13 +1410,13 @@ function ShopToolbar({ query, onQuery, viewMode, onViewMode, filters, active, on
           </button>
         )}
       </div>
-      <div className="view-toggle" role="group" aria-label="Change layout">
+      <div className="view-toggle" role="group" aria-label={`${t('view.grid')} / ${t('view.list')}`}>
         <button
           type="button"
           className={viewMode === 'grid' ? 'active' : ''}
           aria-pressed={viewMode === 'grid'}
-          aria-label="Grid view"
-          title="Grid view"
+          aria-label={t('view.grid')}
+          title={t('view.grid')}
           onClick={() => onViewMode('grid')}
         >
           <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -1423,8 +1430,8 @@ function ShopToolbar({ query, onQuery, viewMode, onViewMode, filters, active, on
           type="button"
           className={viewMode === 'list' ? 'active' : ''}
           aria-pressed={viewMode === 'list'}
-          aria-label="List view"
-          title="List view"
+          aria-label={t('view.list')}
+          title={t('view.list')}
           onClick={() => onViewMode('list')}
         >
           <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
@@ -1454,6 +1461,7 @@ function ProductsPage({ onAdd, onSelect, cartItems }) {
   const [filter, setFilter] = useState('All')
   const [query, setQuery] = useState('')
   const [viewMode, setViewMode] = useState(loadShopView)
+  const { t } = useLang()
   const changeView = (m) => {
     setViewMode(m)
     try {
@@ -1473,10 +1481,10 @@ function ProductsPage({ onAdd, onSelect, cartItems }) {
     <section className="sets-page section">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Shop All</p>
-          <h2>Every product, one place</h2>
+          <p className="eyebrow">{t('shopAll.eyebrow')}</p>
+          <h2>{t('shopAll.title')}</h2>
           <p style={{ color: 'var(--muted)' }}>
-            Browse the full collection by category. Click a product to see details and order.
+            {t('shopAll.sub')}
           </p>
           <ShopToolbar
             query={query}
@@ -1486,14 +1494,14 @@ function ProductsPage({ onAdd, onSelect, cartItems }) {
             filters={categories}
             active={filter}
             onFilter={setFilter}
-            searchLabel="Search by name or type…"
+            searchLabel={t('search.products')}
           />
-          <p className="result-count">{visible.length} item{visible.length === 1 ? '' : 's'}</p>
+          <p className="result-count">{visible.length} {visible.length === 1 ? t('common.item') : t('common.items')}</p>
         </div>
         {visible.length === 0 ? (
           <div className="cart-empty">
             <p>No products match “{query}”{filter !== 'All' ? ` in ${filter}` : ''}.</p>
-            <button className="btn btn-outline" onClick={() => { setQuery(''); setFilter('All') }}>Clear search &amp; filters</button>
+            <button className="btn btn-outline" onClick={() => { setQuery(''); setFilter('All') }}>{t('common.clearAll')}</button>
           </div>
         ) : (
           <div className={`product-grid view-${viewMode}`}>
@@ -1518,6 +1526,7 @@ const PERFUME_FILTERS = ['All', 'Men', 'Women', 'Both']
 
 function PerfumeCard({ product, onAdd, onSelect, inBag }) {
   const [wished, setWished] = useState(false)
+  const { t } = useLang()
   return (
     <article
       className="product-card"
@@ -1535,7 +1544,7 @@ function PerfumeCard({ product, onAdd, onSelect, inBag }) {
         )}
         <button
           type="button"
-          aria-label={wished ? 'Remove from wishlist' : 'Add to wishlist'}
+          aria-label={wished ? t('card.wishRemove') : t('card.wishAdd')}
           aria-pressed={wished}
           className={`wish-btn ${wished ? 'active' : ''}`}
           onClick={(e) => {
@@ -1567,7 +1576,7 @@ function PerfumeCard({ product, onAdd, onSelect, inBag }) {
               <circle cx="19" cy="21" r="1.5" />
               <path d="M2 3h3l2.6 12.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L22 7H6" />
             </svg>
-            <span>{inBag ? 'In Bag ✓' : 'Add to Bag'}</span>
+            <span>{inBag ? t('card.inbag') : t('card.add')}</span>
           </button>
         </div>
       </div>
@@ -1579,6 +1588,7 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
   const [filter, setFilter] = useState('All')
   const [query, setQuery] = useState('')
   const [viewMode, setViewMode] = useState(loadShopView)
+  const { t } = useLang()
   const changeView = (m) => {
     setViewMode(m)
     try {
@@ -1599,10 +1609,10 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
       <section className="sets-page section">
         <div className="container">
           <div className="section-head">
-            <p className="eyebrow">Fragrance</p>
-            <h2>The perfume collection</h2>
+            <p className="eyebrow">{t('perfume.eyebrow')}</p>
+            <h2>{t('perfume.title')}</h2>
             <p style={{ color: 'var(--muted)' }}>
-              Designer &amp; Arabian icons for him, her and both. Filter by Men, Women or Both — click a perfume to see details and order.
+              {t('perfume.sub')}
             </p>
             <ShopToolbar
               query={query}
@@ -1612,14 +1622,14 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
               filters={PERFUME_FILTERS}
               active={filter}
               onFilter={setFilter}
-              searchLabel="Search perfumes by name or brand…"
+              searchLabel={t('search.perfumes')}
             />
-            <p className="result-count">{visible.length} scent{visible.length === 1 ? '' : 's'}</p>
+            <p className="result-count">{visible.length} {visible.length === 1 ? t('common.scent') : t('common.scents')}</p>
           </div>
           {visible.length === 0 ? (
             <div className="cart-empty">
               <p>No perfumes match “{query}”{filter !== 'All' ? ` for ${filter}` : ''}.</p>
-              <button className="btn btn-outline" onClick={() => { setQuery(''); setFilter('All') }}>Clear search &amp; filters</button>
+              <button className="btn btn-outline" onClick={() => { setQuery(''); setFilter('All') }}>{t('common.clearAll')}</button>
             </div>
           ) : (
             <div className={`product-grid view-${viewMode}`}>
@@ -1640,8 +1650,8 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
       <section className="products section" id="perfume-sets" style={{ background: 'var(--blush)' }}>
         <div className="container">
           <div className="section-head">
-            <p className="eyebrow">Perfume Sets</p>
-            <h2>Gift sets &amp; layered collections</h2>
+            <p className="eyebrow">{t('perfume.setsEyebrow')}</p>
+            <h2>{t('perfume.setsTitle')}</h2>
             <p style={{ color: 'var(--muted)' }}>
               Same {filter} filter, curated bundles at a better price. Click a set to see what’s inside.
             </p>
@@ -1686,6 +1696,7 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
 function PerfumeSetDetailPage({ set, onBack, onAddToBag }) {
   const products = set.productIds.map((id) => PERFUMES.find((p) => p.id === id)).filter(Boolean)
   const [added, setAdded] = useState(false)
+  const { t } = useLang()
 
   const handleAdd = () => {
     onAddToBag({
@@ -1701,7 +1712,7 @@ function PerfumeSetDetailPage({ set, onBack, onAddToBag }) {
   return (
     <section className="detail section">
       <div className="container">
-        <button className="back-link" onClick={onBack}>← Back to perfumes</button>
+        <button className="back-link" onClick={onBack}>{t('detail.backPerfume')}</button>
         <div className="detail-grid">
           <div className="detail-photo">
             <img src={set.image} alt={set.name} />
@@ -1719,14 +1730,14 @@ function PerfumeSetDetailPage({ set, onBack, onAddToBag }) {
             </ul>
             <div className="hero-actions" style={{ marginTop: 26 }}>
               <button className="btn" onClick={handleAdd}>
-                {added ? 'Added to Bag ✓' : 'Add Set to Bag'}
+                {added ? t('detail.added') : t('detail.addSet')}
               </button>
             </div>
           </div>
         </div>
 
         <div className="set-products">
-          <h2>What’s inside this set</h2>
+          <h2>{t('detail.inside')}</h2>
           <div className="set-product-list">
             {products.map((p) => (
               <div key={p.id} className="set-product-row">
@@ -1741,11 +1752,11 @@ function PerfumeSetDetailPage({ set, onBack, onAddToBag }) {
             ))}
           </div>
           <div className="set-total">
-            <span>Individual total</span>
+            <span>{t('detail.indiv')}</span>
             <span>{formatPrice(products.reduce((s, p) => s + p.price, 0))}</span>
           </div>
           <div className="set-total grand">
-            <span>Set price</span>
+            <span>{t('detail.setPrice')}</span>
             <span>{formatPrice(set.price)}</span>
           </div>
         </div>
@@ -1756,14 +1767,15 @@ function PerfumeSetDetailPage({ set, onBack, onAddToBag }) {
 
 /* ---------- Sets ---------- */
 function SetsPage({ onSelectSet }) {
+  const { t } = useLang()
   return (
     <section className="sets-page section">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Curated Sets</p>
-          <h2>Bundles made to glow together</h2>
+          <p className="eyebrow">{t('sets.eyebrow')}</p>
+          <h2>{t('sets.title')}</h2>
           <p style={{ color: 'var(--muted)' }}>
-            Thoughtfully paired products at a better price. Click a set to see what's inside.
+            {t('sets.sub')}
           </p>
         </div>
         <div className="product-grid">
@@ -1778,7 +1790,7 @@ function SetsPage({ onSelectSet }) {
             >
               <div className="product-img">
                 <img src={set.image} alt={set.name} loading="lazy" />
-                <span className="badge">{set.productIds.length} products</span>
+                <span className="badge">{set.productIds.length} {t('set.products')}</span>
               </div>
               <div className="product-body">
                 <span className="category">Set</span>
@@ -1786,7 +1798,7 @@ function SetsPage({ onSelectSet }) {
                 <p>{set.tagline}</p>
                 <div className="product-foot">
                   <span className="price">{formatPrice(set.price)}</span>
-                  <span className="view-set">View set →</span>
+                  <span className="view-set">{t('sets.view')}</span>
                 </div>
               </div>
             </article>
@@ -1800,6 +1812,7 @@ function SetsPage({ onSelectSet }) {
 function SetDetailPage({ set, onBack, onAddToBag }) {
   const products = set.productIds.map((id) => PRODUCTS.find((p) => p.id === id))
   const [added, setAdded] = useState(false)
+  const { t } = useLang()
 
   const handleAdd = () => {
     onAddToBag({
@@ -1815,7 +1828,7 @@ function SetDetailPage({ set, onBack, onAddToBag }) {
   return (
     <section className="detail section">
       <div className="container">
-        <button className="back-link" onClick={onBack}>← Back to sets</button>
+        <button className="back-link" onClick={onBack}>{t('detail.backSets')}</button>
         <div className="detail-grid">
           <div className="detail-photo">
             <img src={set.image} alt={set.name} />
@@ -1833,14 +1846,14 @@ function SetDetailPage({ set, onBack, onAddToBag }) {
             </ul>
             <div className="hero-actions" style={{ marginTop: 26 }}>
               <button className="btn" onClick={handleAdd}>
-                {added ? 'Added to Bag ✓' : 'Add Set to Bag'}
+                {added ? t('detail.added') : t('detail.addSet')}
               </button>
             </div>
           </div>
         </div>
 
         <div className="set-products">
-          <h2>What's inside this set</h2>
+          <h2>{t('detail.inside')}</h2>
           <div className="set-product-list">
             {products.map((p) => (
               <div key={p.id} className="set-product-row">
@@ -1855,11 +1868,11 @@ function SetDetailPage({ set, onBack, onAddToBag }) {
             ))}
           </div>
           <div className="set-total">
-            <span>Individual total</span>
+            <span>{t('detail.indiv')}</span>
             <span>{formatPrice(products.reduce((s, p) => s + p.price, 0))}</span>
           </div>
           <div className="set-total grand">
-            <span>Set price</span>
+            <span>{t('detail.setPrice')}</span>
             <span>{formatPrice(set.price)}</span>
           </div>
         </div>
@@ -1874,6 +1887,7 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
   const [processing, setProcessing] = useState(false)
   const [order, setOrder] = useState(null)
   const [form, setForm] = useState({ name: '', phone: '', address: '', city: '', payment: 'card' })
+  const { t } = useLang()
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0)
@@ -1898,39 +1912,39 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
       <section className="detail section">
         <div className="container">
           <button className="back-link" onClick={() => setStep('cart')}>
-            ← Back to cart
+            {t('co.back')}
           </button>
           <div className="section-head" style={{ marginBottom: 40 }}>
-            <p className="eyebrow">Checkout</p>
-            <h2>Almost there</h2>
+            <p className="eyebrow">{t('co.eyebrow')}</p>
+            <h2>{t('co.title')}</h2>
           </div>
 
           <div className="checkout-grid">
             <div className="order-summary">
-              <h3>Order summary</h3>
+              <h3>{t('co.summary')}</h3>
               {items.map((i) => (
                 <div key={i.id} className="summary-row">
                   <img src={i.image} alt="" />
                   <div className="summary-info">
                     <strong>{i.name}</strong>
-                    <span>Qty {i.qty}</span>
+                    <span>{t('co.qty')} {i.qty}</span>
                   </div>
                   <span className="summary-price">{formatPrice(i.price * i.qty)}</span>
                 </div>
               ))}
               <div className="summary-totals">
-                <p><span>Subtotal</span><span>{formatPrice(subtotal)}</span></p>
-                <p><span>Shipping</span><span>{shipping === 0 ? 'Free' : formatPrice(shipping)}</span></p>
-                <p className="grand"><span>Total</span><span>{formatPrice(total)}</span></p>
+                <p><span>{t('cart.subtotal')}</span><span>{formatPrice(subtotal)}</span></p>
+                <p><span>{t('cart.shipping')}</span><span>{shipping === 0 ? t('cart.free') : formatPrice(shipping)}</span></p>
+                <p className="grand"><span>{t('cart.total')}</span><span>{formatPrice(total)}</span></p>
               </div>
             </div>
 
             <form className="order-form" onSubmit={placeOrder}>
-              <h3>Delivery details</h3>
-              <input name="name" placeholder="Full name" value={form.name} onChange={handleChange} required disabled={processing} />
-              <input name="phone" type="tel" placeholder="Phone number" value={form.phone} onChange={handleChange} required disabled={processing} />
-              <input name="address" placeholder="Delivery address" value={form.address} onChange={handleChange} required disabled={processing} />
-              <input name="city" placeholder="City / Region" value={form.city} onChange={handleChange} required disabled={processing} />
+              <h3>{t('co.delivery')}</h3>
+              <input name="name" placeholder={t('co.name')} value={form.name} onChange={handleChange} required disabled={processing} />
+              <input name="phone" type="tel" placeholder={t('co.phone')} value={form.phone} onChange={handleChange} required disabled={processing} />
+              <input name="address" placeholder={t('co.address')} value={form.address} onChange={handleChange} required disabled={processing} />
+              <input name="city" placeholder={t('co.city')} value={form.city} onChange={handleChange} required disabled={processing} />
               <select name="payment" value={form.payment} onChange={handleChange} disabled={processing}>
                 <option value="card">Credit / Debit card</option>
                 <option value="mobile">Mobile money (M-Pesa, Tigo Pesa, Airtel Money)</option>
@@ -1940,13 +1954,13 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
                 {processing ? (
                   <>
                     <span className="spinner" aria-hidden="true" />
-                    Processing payment…
+                    {t('detail.processing')}
                   </>
                 ) : (
-                  <>Pay Now — {formatPrice(total)}</>
+                  <>{t('co.pay')} — {formatPrice(total)}</>
                 )}
               </button>
-              <p className="secure-note">🔒 Secure checkout · SSL encrypted</p>
+              <p className="secure-note">{t('co.secure')}</p>
             </form>
           </div>
         </div>
@@ -1960,7 +1974,7 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
         <div className="container">
           <div className="order-success">
             <span className="success-icon">✓</span>
-            <h2>Payment successful!</h2>
+            <h2>{t('co.success')}</h2>
             <p className="order-num">
               Order <strong>#{order.num}</strong> · Total <strong>{formatPrice(order.total)}</strong>
             </p>
@@ -1968,7 +1982,7 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
               Asante sana, {form.name || 'dear customer'}! Your {order.items.reduce((s, i) => s + i.qty, 0)} item(s) will be packed with care and shipped to{' '}
               {form.city || 'your address'} within 24 hours. A confirmation SMS and email are on their way.
             </p>
-            <button className="btn" onClick={onContinueShopping}>Continue Shopping</button>
+            <button className="btn" onClick={onContinueShopping}>{t('co.thanks')}</button>
           </div>
         </div>
       </section>
@@ -1978,16 +1992,16 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
   return (
     <section className="detail section">
       <div className="container">
-        <button className="back-link" onClick={onContinueShopping}>← Continue shopping</button>
+        <button className="back-link" onClick={onContinueShopping}>{t('cart.continue')}</button>
         <div className="section-head" style={{ marginBottom: 40 }}>
-          <p className="eyebrow">Your bag</p>
-          <h2>Shopping cart</h2>
+          <p className="eyebrow">{t('cart.eyebrow')}</p>
+          <h2>{t('cart.title')}</h2>
         </div>
 
         {items.length === 0 ? (
           <div className="cart-empty">
-            <p>Your bag is empty — time to treat yourself.</p>
-            <button className="btn" onClick={onContinueShopping}>Browse Products</button>
+            <p>{t('cart.empty')}</p>
+            <button className="btn" onClick={onContinueShopping}>{t('cart.browse')}</button>
           </div>
         ) : (
           <div className="cart-layout">
@@ -2014,15 +2028,15 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
             </div>
 
             <aside className="cart-summary">
-              <h3>Summary</h3>
-              <p><span>Subtotal</span><span>{formatPrice(subtotal)}</span></p>
-              <p><span>Shipping</span><span>{shipping === 0 ? 'Free' : formatPrice(shipping)}</span></p>
+              <h3>{t('cart.summary')}</h3>
+              <p><span>{t('cart.subtotal')}</span><span>{formatPrice(subtotal)}</span></p>
+              <p><span>{t('cart.shipping')}</span><span>{shipping === 0 ? t('cart.free') : formatPrice(shipping)}</span></p>
               {shipping > 0 && (
-                <p className="ship-hint">Add {formatPrice(FREE_SHIPPING - subtotal)} more for free shipping.</p>
+                <p className="ship-hint">{t('cart.add')} {formatPrice(FREE_SHIPPING - subtotal)} {t('cart.moreForFree')}</p>
               )}
-              <p className="grand"><span>Total</span><span>{formatPrice(total)}</span></p>
+              <p className="grand"><span>{t('cart.total')}</span><span>{formatPrice(total)}</span></p>
               <button className="btn btn-wide" onClick={() => { setStep('checkout'); window.scrollTo({ top: 0 }) }}>
-                Proceed to Checkout
+                {t('cart.checkout')}
               </button>
             </aside>
           </div>
@@ -2035,16 +2049,17 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
 /* ---------- Orders ---------- */
 function OrdersPage({ orders, onSelectOrder, onShop }) {
   const [filter, setFilter] = useState('All')
+  const { t } = useLang()
   const statuses = ['All', ...new Set(orders.map((o) => o.status))]
   const visible = filter === 'All' ? orders : orders.filter((o) => o.status === filter)
   return (
     <section className="orders-page section">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Track &amp; history</p>
-          <h2>Your orders {orders.length > 0 && <small className="muted">({orders.length})</small>}</h2>
+          <p className="eyebrow">{t('orders.eyebrow')}</p>
+          <h2>{t('orders.title')} {orders.length > 0 && <small className="muted">({orders.length})</small>}</h2>
           <p style={{ color: 'var(--muted)' }}>
-            Every product order &amp; service booking, with live status. Click any order for full details.
+            {t('orders.sub')}
           </p>
           {orders.length > 0 && (
             <div className="filters">
@@ -2063,8 +2078,8 @@ function OrdersPage({ orders, onSelectOrder, onShop }) {
 
         {orders.length === 0 ? (
           <div className="cart-empty">
-            <p>No orders yet — your future favourites are waiting.</p>
-            <button className="btn" onClick={onShop}>Shop now</button>
+            <p>{t('orders.empty')}</p>
+            <button className="btn" onClick={onShop}>{t('orders.shop')}</button>
           </div>
         ) : visible.length === 0 ? (
           <div className="cart-empty">
@@ -2098,7 +2113,7 @@ function OrdersPage({ orders, onSelectOrder, onShop }) {
                   </div>
                   <span className={`order-status st-${o.status.toLowerCase()}`}>{o.status}</span>
                   <span className="order-total">{formatPrice(o.total)}</span>
-                  <span className="view-set">Details →</span>
+                  <span className="view-set">{t('orders.details')}</span>
                 </article>
               )
             })}
@@ -2112,14 +2127,15 @@ function OrdersPage({ orders, onSelectOrder, onShop }) {
 function OrderDetailPage({ order, onBack }) {
   const shipping = order.shipping
   const isService = order.items.some((i) => i.category === 'Service')
+  const { t } = useLang()
   return (
     <section className="detail section">
       <div className="container">
-        <button className="back-link" onClick={onBack}>← Back to my orders</button>
+        <button className="back-link" onClick={onBack}>{t('orders.back')}</button>
         <div className="order-detail-card">
           <div className="order-detail-head">
             <div>
-              <p className="eyebrow">{isService ? 'Booking details' : 'Order details'}</p>
+              <p className="eyebrow">{isService ? t('od.booking') : t('od.title')}</p>
               <h2>#{order.num}</h2>
               <p className="muted">
                 Placed on {new Date(order.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
@@ -2143,13 +2159,13 @@ function OrderDetailPage({ order, onBack }) {
 
           <div className="order-detail-body">
             <div className="order-items-list">
-              <h3 className="order-items-title">Items ({order.items.length})</h3>
+              <h3 className="order-items-title">{t('od.items')} ({order.items.length})</h3>
               {order.items.map((i) => (
                 <div key={i.id} className="summary-row">
                   <img src={i.image} alt={i.name} />
                   <div className="summary-info">
                     <strong>{i.name}</strong>
-                    <span>Qty {i.qty} × {formatPrice(i.price)}</span>
+                    <span>{t('co.qty')} {i.qty} × {formatPrice(i.price)}</span>
                   </div>
                   <span className="summary-price">{formatPrice(i.price * i.qty)}</span>
                 </div>
@@ -2158,24 +2174,24 @@ function OrderDetailPage({ order, onBack }) {
 
             <div className="order-side">
               <div className="order-totals">
-                <p><span>Subtotal</span><span>{formatPrice(order.subtotal)}</span></p>
-                <p><span>{isService ? 'Booking fee' : 'Shipping'}</span><span>{shipping === 0 ? (isService ? '—' : 'Free') : formatPrice(shipping)}</span></p>
-                <p className="grand"><span>{isService ? 'Total' : 'Total paid'}</span><span>{formatPrice(order.total)}</span></p>
+                <p><span>{t('od.subtotal')}</span><span>{formatPrice(order.subtotal)}</span></p>
+                <p><span>{isService ? t('od.fee') : t('od.shipping')}</span><span>{shipping === 0 ? (isService ? '—' : t('od.free')) : formatPrice(shipping)}</span></p>
+                <p className="grand"><span>{isService ? t('od.total') : t('od.totalPaid')}</span><span>{formatPrice(order.total)}</span></p>
               </div>
               <div className="order-customer">
-                <h4>{isService ? 'Booking details' : 'Delivery details'}</h4>
+                <h4>{isService ? t('od.booking') : t('od.delivery')}</h4>
                 <p>{order.customer.name}</p>
                 <p>{order.customer.phone}</p>
                 <p>{order.customer.address}, {order.customer.city}</p>
-                <p className="muted">Paid via {PAYMENT_LABELS[order.customer.payment]}</p>
+                <p className="muted">{t('od.paidVia')} {PAYMENT_LABELS[order.customer.payment]}</p>
               </div>
             </div>
           </div>
 
           <div className="order-help">
             <div>
-              <strong>Need help with this {isService ? 'booking' : 'order'}?</strong>
-              <p className="muted">Mention #{order.num} — we reply within a few hours.</p>
+              <strong>{t('od.help')} {isService ? t('od.bookingWord') : t('od.order')}?</strong>
+              <p className="muted">{t('od.mention')} #{order.num} {t('od.helpSub')}</p>
             </div>
             <div className="order-help-actions">
               <a
@@ -2203,6 +2219,7 @@ function AuthPage({ mode, onSwitchMode, onSuccess, onBack }) {
   const [form, setForm] = useState({ name: '', email: '', password: '' })
   const [showPw, setShowPw] = useState(false)
   const [remember, setRemember] = useState(true)
+  const { t } = useLang()
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
   const isRegister = mode === 'register'
 
@@ -2236,11 +2253,11 @@ function AuthPage({ mode, onSwitchMode, onSuccess, onBack }) {
               Asma Store<span>.</span>
             </a>
 
-            <h1>{isRegister ? 'Create Account' : 'Wellcome Back'}</h1>
+            <h1>{isRegister ? t('auth.create') : t('auth.welcome')}</h1>
             <p className="auth-sub">
               {isRegister
-                ? "Let's join to grab amazing deals"
-                : "Let's login to grab amazing deal"}
+                ? t('auth.joinSub')
+                : t('auth.loginSub')}
             </p>
 
             <div className="social-stack">
@@ -2251,31 +2268,31 @@ function AuthPage({ mode, onSwitchMode, onSuccess, onBack }) {
                   <path fill="#FBBC05" d="M5.27 14.28A7.2 7.2 0 0 1 4.89 12c0-.79.14-1.56.38-2.28v-3.1H1.29a12 12 0 0 0 0 10.76l3.98-3.1Z" />
                   <path fill="#EA4335" d="M12 4.77c1.76 0 3.35.61 4.6 1.8l3.42-3.42A11.98 11.98 0 0 0 12 0 12 12 0 0 0 1.29 6.62l3.98 3.1C6.22 6.88 8.87 4.77 12 4.77Z" />
                 </svg>
-                Continue with Google
+                {t('auth.google')}
               </button>
               <button type="button" className="social-btn" onClick={(e) => { e.preventDefault(); onSuccess({ name: 'Apple User', email: 'user@icloud.com' }) }}>
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
                   <path d="M17.05 12.54c-.03-2.9 2.37-4.29 2.48-4.36-1.35-1.98-3.46-2.25-4.21-2.28-1.79-.18-3.5 1.05-4.4 1.05-.91 0-2.31-1.03-3.8-.99-1.95.03-3.76 1.14-4.77 2.88-2.03 3.53-.52 8.76 1.46 11.63.96 1.4 2.11 2.97 3.62 2.91 1.45-.06 2-.94 3.75-.94s2.25.94 3.78.91c1.56-.03 2.55-1.41 3.5-2.82 1.1-1.61 1.55-3.17 1.58-3.25-.04-.02-3.03-1.16-3.06-4.6l1.07.86ZM14.16 4.06c.8-.97 1.34-2.32 1.19-3.66-1.15.05-2.55.77-3.38 1.74-.74.86-1.39 2.23-1.22 3.55 1.29.1 2.6-.65 3.41-1.63Z" />
                 </svg>
-                Continue with Apple
+                {t('auth.apple')}
               </button>
             </div>
 
-            <div className="auth-divider"><span>Or</span></div>
+            <div className="auth-divider"><span>{t('auth.or')}</span></div>
 
             <form onSubmit={handleSubmit} className="auth-form">
               {isRegister && (
                 <label className="field">
-                  <span className="field-label">Full name</span>
+                  <span className="field-label">{t('auth.fullname')}</span>
                   <input name="name" placeholder="rowrok@gmailcom" value={form.name} onChange={handleChange} required />
                 </label>
               )}
               <label className="field">
-                <span className="field-label">Email</span>
+                <span className="field-label">{t('auth.email')}</span>
                 <input type="email" name="email" placeholder="rowrok@gmailcom" value={form.email} onChange={handleChange} required />
               </label>
               <label className="field">
-                <span className="field-label">Password</span>
+                <span className="field-label">{t('auth.password')}</span>
                 <span className="pw-wrap">
                   <input
                     type={showPw ? 'text' : 'password'}
@@ -2305,25 +2322,25 @@ function AuthPage({ mode, onSwitchMode, onSuccess, onBack }) {
                 <div className="auth-row">
                   <label className="remember">
                     <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} />
-                    <span>Remember me</span>
+                    <span>{t('auth.remember')}</span>
                   </label>
-                  <button type="button" className="link-btn" onClick={() => {}}>Forget Password?</button>
+                  <button type="button" className="link-btn" onClick={() => {}}>{t('auth.forgot')}</button>
                 </div>
               )}
 
               <button type="submit" className="btn auth-submit">
-                {isRegister ? 'Sign Up' : 'Login'}
+                {isRegister ? t('auth.signupBtn') : t('auth.loginBtn')}
               </button>
             </form>
 
             <p className="auth-switch dark">
               {isRegister ? (
-                <>Already have an account? <button onClick={() => onSwitchMode('login')}>Log in</button></>
+                <>{t('auth.have2')} <button onClick={() => onSwitchMode('login')}>{t('nav.login')}</button></>
               ) : (
-                <>Don't have an account? <button onClick={() => onSwitchMode('register')}>Sign Up</button></>
+                <>{t('auth.have')} <button onClick={() => onSwitchMode('register')}>{t('auth.signupBtn')}</button></>
               )}
             </p>
-            <button className="back-link center" onClick={onBack}>← Back to shop</button>
+            <button className="back-link center" onClick={onBack}>{t('auth.back')}</button>
           </div>
 
           {/* Right — video media */}
@@ -2399,14 +2416,15 @@ const SERVICES = [
 ]
 
 function Services({ onOpenAnalyzer, onOpenAdvice }) {
+  const { t } = useLang()
   return (
     <section className="services section" id="services">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Our Services</p>
-          <h2>Advice + machine treatments, in store</h2>
+          <p className="eyebrow">{t('svc.eyebrow')}</p>
+          <h2>{t('svc.title')}</h2>
           <p style={{ color: 'var(--muted)' }}>
-            Not sure what your skin needs? Get scanned, treated and advised — then shop only what works for you.
+            {t('svc.sub')}
           </p>
         </div>
         <div className="services-grid">
@@ -2515,6 +2533,7 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
   const [form, setForm] = useState({ name: '', phone: '', notes: '', payment: 'mobile' })
   const [processing, setProcessing] = useState(false)
   const [booking, setBooking] = useState(null)
+  const { t } = useLang()
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const pkg = ANALYZER_PACKAGES.find((p) => p.id === pkgId)
@@ -2557,7 +2576,7 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
               <p><span>Guest</span><span>{form.name} · {form.phone}</span></p>
             </div>
             <p>Asante! Arrive 10 minutes early, no makeup needed. We’ll reconfirm by SMS. See it under “My Orders”.</p>
-            <button className="btn" onClick={onBack}>Back to home</button>
+            <button className="btn" onClick={onBack}>{t('detail.continue')}</button>
           </div>
         </div>
       </section>
@@ -2567,7 +2586,7 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
   return (
     <section className="detail section analyzer-page">
       <div className="container">
-        <button className="back-link" onClick={onBack}>← Back to home</button>
+        <button className="back-link" onClick={onBack}>{t('common.backHome')}</button>
 
         <div className="analyzer-hero">
           <div className="analyzer-video">
@@ -2736,10 +2755,24 @@ const ADVICE_GUIDES = [
 ]
 
 function AdvicePage({ onBack, onOpenAnalyzer }) {
+  const [lightbox, setLightbox] = useState(null)
+  const { t } = useLang()
+  useEffect(() => {
+    if (!lightbox) return
+    const close = (e) => {
+      if (e.key === 'Escape') setLightbox(null)
+    }
+    document.addEventListener('keydown', close)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', close)
+      document.body.style.overflow = ''
+    }
+  }, [lightbox])
   return (
     <section className="detail section analyzer-page">
       <div className="container">
-        <button className="back-link" onClick={onBack}>← Back to home</button>
+        <button className="back-link" onClick={onBack}>{t('common.backHome')}</button>
 
         <div className="analyzer-hero">
           <div className="analyzer-video">
@@ -2761,7 +2794,7 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
               <li>✓ 5 simple everyday tips</li>
             </ul>
             <div className="hero-actions" style={{ marginTop: 22 }}>
-              <button className="btn" onClick={onOpenAnalyzer}>Get a free skin scan</button>
+              <button className="btn" onClick={onOpenAnalyzer}>{t('svc.scan')}</button>
               <a className="btn btn-outline" href="https://wa.me/255616509415" target="_blank" rel="noreferrer">WhatsApp us</a>
             </div>
           </div>
@@ -2770,9 +2803,21 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
         <div className="services-grid">
           {ADVICE_GUIDES.map((g, i) => (
             <article key={g.id} className="service-card">
-              <div className="service-img">
+              <div
+                className="service-img zoomable"
+                onClick={() => setLightbox(g)}
+                role="button"
+                tabIndex={0}
+                aria-label={`View ${g.title} fullscreen`}
+                onKeyDown={(e) => e.key === 'Enter' && setLightbox(g)}
+              >
                 <img src={g.image} alt={g.title} loading="lazy" />
                 <span className="badge">{g.tag}</span>
+                <span className="zoom-hint" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                </span>
               </div>
               <div className="service-body">
                 <span className="category">Guide {i + 1}</span>
@@ -2813,17 +2858,31 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
           </div>
         </div>
       </div>
+      {lightbox && (
+        <div className="lightbox" onClick={() => setLightbox(null)} role="dialog" aria-modal="true" aria-label={lightbox.title}>
+          <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Close fullscreen image">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+          <figure className="lightbox-fig" onClick={(e) => e.stopPropagation()}>
+            <img src={lightbox.image} alt={lightbox.title} />
+            <figcaption>{lightbox.title} — {lightbox.tag}</figcaption>
+          </figure>
+        </div>
+      )}
     </section>
   )
 }
 
 function Testimonials() {
+  const { t } = useLang()
   return (
     <section className="testimonials section" id="reviews">
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Reviews</p>
-          <h2>Loved by thousands</h2>
+          <p className="eyebrow">{t('rev.eyebrow')}</p>
+          <h2>{t('rev.title')}</h2>
         </div>
         <div className="testimonial-grid">
           {TESTIMONIALS.map((t) => (
@@ -2845,6 +2904,7 @@ function Testimonials() {
 function Contact() {
   const [sent, setSent] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const { t } = useLang()
   const handleSubmit = (e) => {
     e.preventDefault()
     setSent(true)
@@ -2855,11 +2915,10 @@ function Contact() {
     <section className="contact section" id="contact">
       <div className="container contact-inner">
         <div className="contact-info">
-          <p className="eyebrow">Contact</p>
-          <h2>Let's talk beauty</h2>
+          <p className="eyebrow">{t('contact.eyebrow')}</p>
+          <h2>{t('contact.title')}</h2>
           <p>
-            Questions about shades, orders, or wholesale partnerships? Our team replies within one
-            business day.
+            {t('contact.sub')}
           </p>
           <ul className="contact-details">
             <li>✉ hello@asmastore.com</li>
@@ -2875,10 +2934,10 @@ function Contact() {
           </div>
         ) : (
           <form className="contact-form" onSubmit={handleSubmit}>
-            <input name="name" placeholder="Your name" value={form.name} onChange={handleChange} required />
-            <input type="email" name="email" placeholder="Email address" value={form.email} onChange={handleChange} required />
-            <textarea name="message" rows="4" placeholder="How can we help?" value={form.message} onChange={handleChange} required />
-            <button type="submit" className="btn">Send Message</button>
+            <input name="name" placeholder={t('contact.name')} value={form.name} onChange={handleChange} required />
+            <input type="email" name="email" placeholder={t('contact.email')} value={form.email} onChange={handleChange} required />
+            <textarea name="message" rows="4" placeholder={t('contact.msg')} value={form.message} onChange={handleChange} required />
+            <button type="submit" className="btn">{t('contact.send')}</button>
           </form>
         )}
       </div>
@@ -2887,17 +2946,18 @@ function Contact() {
 }
 
 function Footer() {
+  const { t } = useLang()
   return (
     <footer className="footer">
       <div className="container footer-inner">
         <a href="#top" className="logo">Asma Store<span>.</span></a>
         <nav className="footer-links">
-          <a href="#about">About</a>
-          <a href="#products">Products</a>
-          <a href="#reviews">Reviews</a>
-          <a href="#contact">Contact</a>
+          <a href="#about">{t('foot.about')}</a>
+          <a href="#products">{t('foot.products')}</a>
+          <a href="#reviews">{t('foot.reviews')}</a>
+          <a href="#contact">{t('foot.contact')}</a>
         </nav>
-        <p>© {new Date().getFullYear()} Asma Store. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Asma Store. {t('foot.rights')}</p>
       </div>
     </footer>
   )
@@ -2916,6 +2976,20 @@ export default function App() {
   const [user, setUser] = useState(() => loadStore('lumiere_user'))
   const [orders, setOrders] = useState(() => loadStore('lumiere_orders') || [])
   const [cart, setCart] = useState([])
+  const [lang, setLang] = useState(loadLang)
+  const [langOpen, setLangOpen] = useState(false)
+
+  const changeLang = (l) => {
+    setLang(l)
+    setLangOpen(false)
+    try {
+      localStorage.setItem('asma_lang', l)
+    } catch {
+      /* ignore */
+    }
+  }
+
+  const t = (k) => (STR[lang] && STR[lang][k]) || STR.en[k] || k
 
   useEffect(() => {
     localStorage.setItem('lumiere_user', JSON.stringify(user))
@@ -3126,31 +3200,64 @@ export default function App() {
   }
 
   return (
-    <>
+    <LangCtx.Provider value={{ lang, setLang: changeLang, t }}>
       {navbar}
       <main>{content}</main>
       <Footer />
-      {cartCount > 0 && view !== 'cart' && (
-        <button className="floating-cart" onClick={openCart} aria-label={`Open cart, ${cartCount} items`}>
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <circle cx="9" cy="21" r="1.5" />
-            <circle cx="19" cy="21" r="1.5" />
-            <path d="M2 3h3l2.6 12.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L22 7H6" />
-          </svg>
-          <span className="floating-cart-count" key={cartCount}>{cartCount}</span>
-        </button>
-      )}
-    </>
+      <div className="corner-stack">
+        {cartCount > 0 && view !== 'cart' && (
+          <button className="floating-cart" onClick={openCart} aria-label={`${t('corner.cart')}, ${cartCount} ${t('corner.items')}`}>
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="9" cy="21" r="1.5" />
+              <circle cx="19" cy="21" r="1.5" />
+              <path d="M2 3h3l2.6 12.5a2 2 0 0 0 2 1.5h8.7a2 2 0 0 0 2-1.6L22 7H6" />
+            </svg>
+            <span className="floating-cart-count" key={cartCount}>{cartCount}</span>
+          </button>
+        )}
+        <div className="lang-fab-wrap">
+          <div className={`lang-pops ${langOpen ? 'open' : ''}`} aria-hidden={!langOpen}>
+            {['en', 'sw'].map((l, i) => (
+              <button
+                key={l}
+                type="button"
+                tabIndex={langOpen ? 0 : -1}
+                className={`lang-pop ${lang === l ? 'active' : ''}`}
+                style={{ '--i': i }}
+                aria-label={l === 'en' ? t('lang.en') : t('lang.sw')}
+                onClick={() => changeLang(l)}
+              >
+                {l.toUpperCase()}
+              </button>
+            ))}
+          </div>
+          <button
+            className={`lang-fab ${langOpen ? 'open' : ''}`}
+            onClick={() => setLangOpen(!langOpen)}
+            aria-label={t('lang.label')}
+            aria-expanded={langOpen}
+            title={t('lang.label')}
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
+            </svg>
+            <span className="lang-code">{lang.toUpperCase()}</span>
+          </button>
+        </div>
+      </div>
+    </LangCtx.Provider>
   )
 }
 
 function SetsPreview({ onSeeAll, onSelectSet }) {
+  const { t } = useLang()
   return (
     <section className="products section" id="sets-preview" style={{ background: 'var(--blush)' }}>
       <div className="container">
         <div className="section-head">
-          <p className="eyebrow">Curated Sets</p>
-          <h2>Glow together, save more</h2>
+          <p className="eyebrow">{t('home.setsEyebrow')}</p>
+          <h2>{t('home.setsTitle')}</h2>
         </div>
         <div className="product-grid">
           {SETS.slice(0, 3).map((set) => (
@@ -3164,7 +3271,7 @@ function SetsPreview({ onSeeAll, onSelectSet }) {
             >
               <div className="product-img">
                 <img src={set.image} alt={set.name} loading="lazy" />
-                <span className="badge">{set.productIds.length} products</span>
+                <span className="badge">{set.productIds.length} {t('set.products')}</span>
               </div>
               <div className="product-body">
                 <span className="category">Set</span>
@@ -3172,14 +3279,14 @@ function SetsPreview({ onSeeAll, onSelectSet }) {
                 <p>{set.tagline}</p>
                 <div className="product-foot">
                   <span className="price">{formatPrice(set.price)}</span>
-                  <span className="view-set">View set →</span>
+                  <span className="view-set">{t('sets.view')}</span>
                 </div>
               </div>
             </article>
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: 40 }}>
-          <button className="btn btn-outline" onClick={onSeeAll}>View All Sets</button>
+          <button className="btn btn-outline" onClick={onSeeAll}>{t('home.viewAllSets')}</button>
         </div>
       </div>
     </section>
