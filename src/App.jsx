@@ -2004,6 +2004,7 @@ function OrderDetailPage({ order, onBack }) {
 
           <div className="order-detail-body">
             <div className="order-items-list">
+              <h3 className="order-items-title">Items ({order.items.length})</h3>
               {order.items.map((i) => (
                 <div key={i.id} className="summary-row">
                   <img src={i.image} alt={i.name} />
@@ -2029,6 +2030,24 @@ function OrderDetailPage({ order, onBack }) {
                 <p>{order.customer.address}, {order.customer.city}</p>
                 <p className="muted">Paid via {PAYMENT_LABELS[order.customer.payment]}</p>
               </div>
+            </div>
+          </div>
+
+          <div className="order-help">
+            <div>
+              <strong>Need help with this {isService ? 'booking' : 'order'}?</strong>
+              <p className="muted">Mention #{order.num} — we reply within a few hours.</p>
+            </div>
+            <div className="order-help-actions">
+              <a
+                className="btn btn-small"
+                href={`https://wa.me/255616509415?text=${encodeURIComponent(`Hi Asma Store! I need help with order #${order.num}`)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                WhatsApp
+              </a>
+              <a className="btn btn-small btn-outline" href="tel:+255616509415">Call us</a>
             </div>
           </div>
         </div>
@@ -2604,7 +2623,7 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
             </ul>
             <div className="hero-actions" style={{ marginTop: 22 }}>
               <button className="btn" onClick={onOpenAnalyzer}>Get a free skin scan</button>
-              <a className="btn btn-outline" href="https://wa.me/255754000111" target="_blank" rel="noreferrer">WhatsApp us</a>
+              <a className="btn btn-outline" href="https://wa.me/255616509415" target="_blank" rel="noreferrer">WhatsApp us</a>
             </div>
           </div>
         </div>
@@ -2637,11 +2656,11 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
               <h2>Asma Store — Sinza, Dar es Salaam</h2>
               <ul className="contact-details">
                 <li>⌂ Sinza Mori Road, Near Sinza Bus Stand, Dar es Salaam, Tanzania</li>
-                <li>☏ <a href="tel:+255754000111">+255 754 000 111</a> (call / WhatsApp) · Mon–Sat</li>
+                <li>☏ <a href="tel:+255616509415">+255 616 509 415</a> (call / WhatsApp) · Mon–Sat</li>
                 <li>✉ <a href="mailto:hello@asmastore.com">hello@asmastore.com</a></li>
               </ul>
               <div className="hero-actions" style={{ marginTop: 18, marginBottom: 0 }}>
-                <a className="btn btn-small" href="https://wa.me/255754000111?text=Hi%20Asma%20Store!%20I%20need%20beauty%20advice" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
+                <a className="btn btn-small" href="https://wa.me/255616509415?text=Hi%20Asma%20Store!%20I%20need%20beauty%20advice" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
                 <a className="btn btn-small btn-outline" href="https://www.google.com/maps/search/?api=1&query=Sinza+Mori+Road+Dar+es+Salaam" target="_blank" rel="noreferrer">Open in Maps</a>
               </div>
             </div>
@@ -2705,7 +2724,7 @@ function Contact() {
           </p>
           <ul className="contact-details">
             <li>✉ hello@asmastore.com</li>
-            <li>☏ +255 754 000 111 (call / WhatsApp)</li>
+            <li>☏ +255 616 509 415 (call / WhatsApp)</li>
             <li>⌂ Sinza Mori Road, Near Sinza Bus Stand, Dar es Salaam, Tanzania</li>
             <li>🕘 Mon–Sat 09:00–20:00 · Sun 12:00–18:00</li>
           </ul>
