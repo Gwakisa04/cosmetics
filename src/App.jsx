@@ -65,6 +65,81 @@ const STR = {
     'detail.inside': "What's inside this set", 'detail.indiv': 'Individual total', 'detail.setPrice': 'Set price',
     'detail.added': 'Added to Bag ✓', 'detail.addSet': 'Add Set to Bag',
     'common.backHome': '← Back to home', 'svc.scan': 'Get a free skin scan',
+    'common.all': 'All', 'common.reviews': 'reviews', 'common.showAll': 'Show all', 'common.close': 'Close',
+    'aud.men': 'Men', 'aud.women': 'Women', 'aud.both': 'Both',
+    'cat.skincare': 'Skincare', 'cat.makeup': 'Makeup', 'cat.body': 'Body', 'cat.suncare': 'Sun Care',
+    'st.processing': 'Processing', 'st.confirmed': 'Confirmed', 'st.completed': 'Completed', 'st.shipped': 'Shipped', 'st.delivered': 'Delivered',
+    'set.word': 'Set', 'set.curated': 'Curated Set',
+    'steps.1t': 'Place your order', 'steps.1d': 'Fill in your delivery details below — it takes under a minute.',
+    'steps.2t': 'We confirm & pack', 'steps.2d': 'You get a confirmation email while we hand-wrap your items.',
+    'steps.3t': 'Fast delivery', 'steps.3d': 'Ships within 24h. Free shipping on orders over TShs 100,000.',
+    'feat.1t': 'Cruelty-Free', 'feat.1d': 'Never tested on animals. Certified Leaping Bunny approved.',
+    'feat.2t': 'Clean Formula', 'feat.2d': 'No parabens, sulfates, or synthetic fragrance. Ever.',
+    'feat.3t': 'Dermatologist Tested', 'feat.3d': 'Gentle enough for sensitive skin, proven by science.',
+    'feat.4t': 'Eco Packaging', 'feat.4d': 'Recyclable glass and refillable compacts on every line.',
+    'pay.card': 'Credit / Debit card', 'pay.mobile': 'Mobile money (M-Pesa, Tigo Pesa, Airtel Money)', 'pay.cod': 'Cash on delivery', 'pay.store': 'Pay at store',
+    'perk.ship': 'Free shipping over TShs 100,000', 'perk.returns': '30-day free returns', 'perk.24h': 'Ships within 24 hours',
+    'perk.gift': 'Gift-wrapped in signature packaging', 'perk.sealed': 'Original & sealed bottles', 'perk.giftreq': 'Gift-wrapped on request',
+    'co.thanksLong': 'Asante sana, {name}! Your {count} item(s) will be packed with care and shipped to {city} within 24 hours. A confirmation SMS and email are on their way.',
+    'auth.caption': 'Browse thousands of beauty essentials to glow, shop, and shine with trusted formulas.',
+    'hero.c1': 'Real results, real glow', 'hero.c2': 'Self-care Sundays', 'hero.c3': '"My holy grail serum!"',
+    'svc.advice.tag': '1-on-1 Advice', 'svc.advice.title': 'Personal Beauty Advice',
+    'svc.advice.text': 'Tell us your skin goals — our beauticians build you a simple routine and tell you exactly what to buy (and what to skip).',
+    'svc.advice.points': ['Skin-type & concern check', 'Custom routine plan', 'Free with any purchase'],
+    'svc.advice.cta': 'Get free advice',
+    'svc.analyzer.tag': 'AI Face Analyzer', 'svc.analyzer.title': 'Face Analyzer Scan',
+    'svc.analyzer.text': 'High-precision AI scan reads hydration, spots, pores, wrinkles and sun damage in 30 seconds — then we match products to your real skin.',
+    'svc.analyzer.points': ['Hydration · spots · pores', 'Before / after tracking', 'TShs 15,000 — free over 100k'],
+    'svc.analyzer.cta': 'Book a scan',
+    'svc.machine.tag': 'Machine Treatment', 'svc.machine.title': 'Machine Face Treatment',
+    'svc.machine.text': 'Deep cleanse, hydra-glow and lifting with our pro facial machine. Instant glow before events — gentle for sensitive skin.',
+    'svc.machine.points': ['Deep cleanse + hydra', 'Lifting & brightening', 'From TShs 45,000 / session'],
+    'svc.machine.cta': 'Book treatment',
+    'an.popular': 'Most popular',
+    'an.s1': 'Choose your package', 'an.s2': 'Add a scrub?', 'an.s2note': '— yes, we do scrubs', 'an.s3': 'Pick a time window',
+    'an.book': 'Book & pay', 'an.cancel': 'Free cancellation up to 12h before', 'an.included': 'Included / none',
+    'an.pay': 'Pay {total} — Confirm booking',
+    'an.okTitle': 'Booking confirmed!', 'an.okService': 'Service', 'an.okScrub': 'Scrub', 'an.okWhen': 'When', 'an.okGuest': 'Guest',
+    'an.okThanks': 'Asante! Arrive 10 minutes early, no makeup needed. We’ll reconfirm by SMS. See it under “My Orders”.',
+    'pkg.essential.name': 'Essential Scan', 'pkg.essential.desc': 'AI scan + digital skin report + exact product matches.',
+    'pkg.essential.points': ['Hydration · pores · spots · wrinkles', 'UV damage & pigment map', 'Personal product list'],
+    'pkg.glow.name': 'Scan + Glow Facial', 'pkg.glow.desc': 'Bestseller — scan plus machine mini-facial for instant glow.',
+    'pkg.glow.points': ['Everything in Essential', 'Machine cleanse + hydra', 'Scrub exfoliation included'],
+    'pkg.clinical.name': 'Full Clinical Ritual', 'pkg.clinical.desc': 'Scan + full machine treatment + mask + before/after tracking.',
+    'pkg.clinical.points': ['Everything in Glow', 'Lifting + brightening pass', 'Mask + after-care plan'],
+    'scrub.none.name': 'No scrub', 'scrub.none.desc': 'Scan / facial only',
+    'scrub.gentle.name': 'Gentle enzyme scrub', 'scrub.gentle.desc': 'Sensitive-safe glow polish',
+    'scrub.deep.name': 'Deep pore scrub', 'scrub.deep.desc': 'Blackheads + texture reset',
+    'ad.guide': 'Guide', 'ad.visit': 'Visit us', 'ad.hours': 'Opening hours',
+    'ad.mon': 'Monday – Saturday', 'ad.fri': 'Friday break', 'ad.sun': 'Sunday',
+    'ad.walk': 'Walk-ins welcome · Scans: book ahead on busy Saturdays',
+    'ad.chat': 'Chat on WhatsApp', 'ad.maps': 'Open in Maps',
+    'ad.eyebrow': 'Free advice · Asma Store, Sinza', 'ad.title': 'Beauty Advice That Actually Works',
+    'ad.rating': '4.9 · loved by 3,000+ customers',
+    'ad.desc': 'No guesswork. Start with the coffee scrub for instant glow, keep it with the 10-minute morning routine, and lock it in with five simple habits. Need 1-on-1 help? Visit us in Sinza — advice is free with any purchase.',
+    'ad.p1': 'Coffee scrub — instant glow', 'ad.p2': '10-min morning routine', 'ad.p3': '5 simple everyday tips',
+    'ad.coffee.tag': 'Instant glow · 2× / week', 'ad.coffee.title': 'Coffee Scrub for Instant Glow',
+    'ad.coffee.text': 'Homemade exfoliation that wakes up dull skin in minutes — smoother, brighter, make-up-ready glow.',
+    'ad.coffee.steps': ['Mix 2 tbsp fine coffee + 1 tbsp honey + 1 tbsp plain yogurt', 'Massage gently on damp face for 2 minutes (skip eye area)', 'Leave 3 more minutes, rinse with lukewarm water', 'Mist + moisturise immediately — glow lasts 2–3 days'],
+    'ad.morning.tag': 'Every morning · 10 min', 'ad.morning.title': 'Everyday 10-Minute Morning Routine',
+    'ad.morning.text': 'A fresh natural look before work or class — few products, no stress.',
+    'ad.morning.steps': ['0–2 min: gentle cleanse + lukewarm rinse', '2–4 min: rose mist / toner to rehydrate', '4–6 min: vitamin C or B5 serum, thin layer', '6–8 min: light moisturiser (Nivea Soft / Bakina)', '8–10 min: SPF 50 — never skip, even indoors'],
+    'ad.tips.tag': 'Beginner friendly', 'ad.tips.title': 'Five Simple Beauty Tips',
+    'ad.tips.text': 'Small habits that beat expensive products when you stay consistent.',
+    'ad.tips.steps': ['Double-cleanse at night if you wore SPF or makeup', 'SPF every morning — #1 anti-age secret', 'Sleep 7–8h + 2L water daily for real glow', 'Scrub 2× a week, never daily — barrier first', 'Track with a free analyzer scan every 30 days'],
+    'ab.l1': 'Sourced from certified sustainable suppliers', 'ab.l2': 'Clinically tested on real skin, never animals', 'ab.l3': 'Free returns within 30 days — no questions asked',
+    'ab.caption': 'Inside our studio & boutique',
+    'ct.ok': 'Thank you, {name}! 💌', 'ct.oksub': "Your message is on its way. We'll get back to you shortly.",
+    'or.showAll': 'Show all', 'or.none': 'No {f} orders.', 'ord.svc': '· Service', 'ord.prod': '· Products',
+    'glow.bright': 'Luminous beauty designed to elevate your natural glow',
+    'glow.nourish': 'Bold nourishment made to honor your natural glow',
+    'glow.for': 'Suggested for you', 'glow.use': 'Products to use', 'glow.set': 'Set to pair with',
+    'an.eyebrow': 'In-store service · ~20–75 min', 'an.title': 'Face Analyzer Scan & Treatment',
+    'an.desc': 'Stop guessing what your skin needs. Our 3D AI analyzer maps hydration, wrinkles, UV damage, pores and pigment with clinical precision — then our beautician treats and prescribes only what your skin actually needs.',
+    'an.p1': 'Hydration · pores · spots map', 'an.p2': 'UV & pigment analysis', 'an.p3': 'Digital report + routine',
+    'an.t1v': '10s', 'an.t1l': 'scan time', 'an.t2v': '5-in-1', 'an.t2l': 'skin metrics', 'an.t3v': 'Free', 'an.t3l': 'rescan in 30 days',
+    'an.video': '3D AI Skin Analyzer — live demo', 'an.mins': 'min',
+    'an.notes': 'Notes (skin concern, allergies…)',
   },
   sw: {
     'nav.home': 'Nyumbani', 'nav.products': 'Bidhaa', 'nav.perfume': 'Manukato', 'nav.sets': 'Seti',
@@ -128,6 +203,81 @@ const STR = {
     'detail.inside': 'Kilichomo', 'detail.indiv': 'Jumla ya vitu', 'detail.setPrice': 'Bei ya seti',
     'detail.added': 'Kikapuni ✓', 'detail.addSet': 'Weka Seti Kikapuni',
     'common.backHome': '← Rudi nyumbani', 'svc.scan': 'Pata scan bure ya ngozi',
+    'common.all': 'Zote', 'common.reviews': 'maoni', 'common.showAll': 'Onyesha zote', 'common.close': 'Funga',
+    'aud.men': 'Wanaume', 'aud.women': 'Wanawake', 'aud.both': 'Wote',
+    'cat.skincare': 'Ngozi', 'cat.makeup': 'Vipodozi', 'cat.body': 'Mwili', 'cat.suncare': 'Jua',
+    'st.processing': 'Inashughulikiwa', 'st.confirmed': 'Imethibitishwa', 'st.completed': 'Imekamilika', 'st.shipped': 'Imetumwa', 'st.delivered': 'Imewasilishwa',
+    'set.word': 'Seti', 'set.curated': 'Seti Maalum',
+    'steps.1t': 'Weka oda yako', 'steps.1d': 'Jaza maelezo ya utoaji hapa chini — inachukua chini ya dakika.',
+    'steps.2t': 'Tunathibitisha na kufunga', 'steps.2d': 'Unapata barua pepe huku tukifunga bidhaa zako kwa uangalifu.',
+    'steps.3t': 'Uwasilishaji wa haraka', 'steps.3d': 'Tunasafirisha ndani ya saa 24. Usafiri bure kwa oda zaidi ya TShs 100,000.',
+    'feat.1t': 'Bila Ukatili', 'feat.1d': 'Haijawahi kujaribiwa kwa wanyama. Imethibitishwa.',
+    'feat.2t': 'Viungo Safi', 'feat.2d': 'Hakuna parabens, sulfates, wala manukato ya kutengeneza.',
+    'feat.3t': 'Imepitishwa na Madaktari', 'feat.3d': 'Laini hata kwa ngozi nyeti, imethibitishwa kisayansi.',
+    'feat.4t': 'Vifungashio Rafiki', 'feat.4d': 'Chupa zinazoweza kurejeshwa kwenye kila laini.',
+    'pay.card': 'Kadi ya benki', 'pay.mobile': 'Pesa kwa simu (M-Pesa, Tigo Pesa, Airtel Money)', 'pay.cod': 'Lipa ukipokea', 'pay.store': 'Lipa dukani',
+    'perk.ship': 'Usafiri bure kwa oda zaidi ya TShs 100,000', 'perk.returns': 'Kurudisha bure ndani ya siku 30', 'perk.24h': 'Tunasafirisha ndani ya saa 24',
+    'perk.gift': 'Imefungwa kama zawadi', 'perk.sealed': 'Chupa asilia zilizofungwa', 'perk.giftreq': 'Kufungwa kama zawadi ukiomba',
+    'co.thanksLong': 'Asante sana, {name}! Vitu vyako {count} vitafungwa kwa uangalifu na kutumwa {city} ndani ya saa 24. Ujumbe wa SMS na barua pepe njiani.',
+    'auth.caption': 'Angalia maelfu ya vipodozi kung’aa, kununua na kumeremeta na viungo vinavyoaminika.',
+    'hero.c1': 'Matokeo halisi, mng’ao halisi', 'hero.c2': 'Jumapili za kujitunza', 'hero.c3': '"Serum yangu pendwa!"',
+    'svc.advice.tag': 'Ushauri Binafsi', 'svc.advice.title': 'Ushauri wa Urembo',
+    'svc.advice.text': 'Tuambie malengo ya ngozi yako — warembo wetu wanakujengea ratiba rahisi na kukuambia ununue nini (na uache nini).',
+    'svc.advice.points': ['Uchunguzi wa aina ya ngozi', 'Mpango binafsi wa ratiba', 'Bure na ununuzi wowote'],
+    'svc.advice.cta': 'Pata ushauri bure',
+    'svc.analyzer.tag': 'Kipima Ngozi', 'svc.analyzer.title': 'Upimaji wa Ngozi',
+    'svc.analyzer.text': 'Mashine inasoma unyevu, madoa, vitundu, mikunjo na jua ndani ya sekunde 30 — kisha tunakuchagulia bidhaa zinazofaa.',
+    'svc.analyzer.points': ['Unyevu · madoa · vitundu', 'Ufuatiliaji wa kabla / baada', 'TShs 15,000 — bure zaidi ya 100k'],
+    'svc.analyzer.cta': 'Weka miadi ya upimaji',
+    'svc.machine.tag': 'Matibabu ya Mashine', 'svc.machine.title': 'Matibabu ya Uso',
+    'svc.machine.text': 'Usafishaji wa ndani, unyevu na kukaza ngozi kwa mashine yetu. Mng’ao wa haraka kabla ya sherehe — laini hata ngozi nyeti.',
+    'svc.machine.points': ['Usafishaji + unyevu', 'Kukaza na kung’arisha', 'Kuanzia TShs 45,000 / kipindi'],
+    'svc.machine.cta': 'Weka miadi ya matibabu',
+    'an.popular': 'Inayopendwa zaidi',
+    'an.s1': 'Chagua kifurushi', 'an.s2': 'Ongeza scrub?', 'an.s2note': '— ndiyo, tunafanya scrub', 'an.s3': 'Chagua muda',
+    'an.book': 'Weka miadi na ulipe', 'an.cancel': 'Kughairi bure hadi saa 12 kabla', 'an.included': 'Hakuna / imejumuishwa',
+    'an.pay': 'Lipa {total} — Thibitisha miadi',
+    'an.okTitle': 'Miadi imethibitishwa!', 'an.okService': 'Huduma', 'an.okScrub': 'Scrub', 'an.okWhen': 'Lini', 'an.okGuest': 'Mgeni',
+    'an.okThanks': 'Asante! Fika dakika 10 mapema, bila makeup. Tutakutumia SMS. Angalia chini ya “Oda Zangu”.',
+    'pkg.essential.name': 'Upimaji Msingi', 'pkg.essential.desc': 'Upimaji + ripoti ya ngozi + orodha ya bidhaa.',
+    'pkg.essential.points': ['Unyevu · vitundu · madoa · mikunjo', 'Ramani ya jua na rangi', 'Orodha binafsi ya bidhaa'],
+    'pkg.glow.name': 'Upimaji + Kung’aa', 'pkg.glow.desc': 'Inayouzwa zaidi — upimaji pamoja na matibabu mafupi.',
+    'pkg.glow.points': ['Vyote vya Msingi', 'Usafishaji + unyevu wa mashine', 'Scrub imejumuishwa'],
+    'pkg.clinical.name': 'Matibabu Kamili', 'pkg.clinical.desc': 'Upimaji + matibabu kamili + mask + ufuatiliaji.',
+    'pkg.clinical.points': ['Vyote vya Kung’aa', 'Kukaza na kung’arisha', 'Mask + mpango wa nyumbani'],
+    'scrub.none.name': 'Bila scrub', 'scrub.none.desc': 'Upimaji / uso tu',
+    'scrub.gentle.name': 'Scrub laini', 'scrub.gentle.desc': 'Kung’arisha salama kwa ngozi nyeti',
+    'scrub.deep.name': 'Scrub ya ndani', 'scrub.deep.desc': 'Inasafisha vitundu na ngozi ngumu',
+    'ad.guide': 'Mwongozo', 'ad.visit': 'Tutembelee', 'ad.hours': 'Muda wa kufungua',
+    'ad.mon': 'Jumatatu – Jumamosi', 'ad.fri': 'Mapumziko ya Ijumaa', 'ad.sun': 'Jumapili',
+    'ad.walk': 'Karibu bila miadi · Upimaji: weka miadi Jumamosi',
+    'ad.chat': 'Ongea WhatsApp', 'ad.maps': 'Fungua Ramani',
+    'ad.eyebrow': 'Ushauri bure · Asma Store, Sinza', 'ad.title': 'Ushauri wa Urembo Unaofanya Kazi',
+    'ad.rating': '4.9 · wanapendwa na wateja 3,000+',
+    'ad.desc': 'Bila kubahatisha. Anza na scrub ya kahawa, endelea na ratiba ya dakika 10, na vidokezo vitano. Unahitaji msaada binafsi? Tembelea Sinza — ushauri ni bure na ununuzi.',
+    'ad.p1': 'Scrub ya kahawa — mng’ao wa haraka', 'ad.p2': 'Ratiba ya asubuhi ya dakika 10', 'ad.p3': 'Vidokezo vitano vya kila siku',
+    'ad.coffee.tag': 'Mng’ao wa haraka · mara 2 / wiki', 'ad.coffee.title': 'Scrub ya Kahawa kwa Mng’ao',
+    'ad.coffee.text': 'Kusugua nyumbani kunaamsha ngozi iliyofifia ndani ya dakika — laini na yenye mng’ao.',
+    'ad.coffee.steps': ['Changanya vijiko 2 vya kahawa + 1 asali + 1 mtindi', 'Sugua kwa upole usoni kwa dakika 2 (epuka macho)', 'Acha dakika 3, suuza na maji ya uvuguvugu', 'Paka mist + cream mara moja — mng’ao siku 2–3'],
+    'ad.morning.tag': 'Kila asubuhi · dakika 10', 'ad.morning.title': 'Ratiba ya Asubuhi ya Dakika 10',
+    'ad.morning.text': 'Muonekano safi kabla ya kazi au shule — bidhaa chache, bila presha.',
+    'ad.morning.steps': ['Dak 0–2: osha uso + suuza', 'Dak 2–4: mist ya waridi', 'Dak 4–6: serum ya vitamin C au B5', 'Dak 6–8: cream nyepesi (Nivea / Bakina)', 'Dak 8–10: SPF 50 — usiruke hata ndani'],
+    'ad.tips.tag': 'Rahisi kwa wanaoanza', 'ad.tips.title': 'Vidokezo Vitano Rahisi',
+    'ad.tips.text': 'Tabia ndogo zinashinda bidhaa ghali ukiwa na nidhamu.',
+    'ad.tips.steps': ['Osha uso mara mbili usiku ukiwa na SPF', 'SPF kila asubuhi — siri ya ujana', 'Lala saa 7–8 + maji lita 2 kila siku', 'Scrub mara 2 kwa wiki, si kila siku', 'Pimwa bure kila siku 30'],
+    'ab.l1': 'Viungo kutoka kwa wauzaji endelevu', 'ab.l2': 'Imejaribiwa kwa ngozi halisi, si wanyama', 'ab.l3': 'Kurudisha bure siku 30 — bila maswali',
+    'ab.caption': 'Ndani ya studio na duka letu',
+    'ct.ok': 'Asante, {name}! 💌', 'ct.oksub': 'Ujumbe wako njiani. Tutakujibu hivi karibuni.',
+    'or.showAll': 'Onyesha zote', 'or.none': 'Hakuna oda {f}.', 'ord.svc': '· Huduma', 'ord.prod': '· Bidhaa',
+    'glow.bright': 'Urembo unaong’aa ulioundwa kuinua mng’ao wako wa asili',
+    'glow.nourish': 'Lishe thabiti iliyotengenezwa kuheshimu mng’ao wako wa asili',
+    'glow.for': 'Tumekuchagulia', 'glow.use': 'Bidhaa za kutumia', 'glow.set': 'Seti ya kuambatanisha',
+    'an.eyebrow': 'Huduma dukani · ~dakika 20–75', 'an.title': 'Upimaji wa Ngozi na Matibabu',
+    'an.desc': 'Acha kubahatisha ngozi yako inahitaji nini. Mashine yetu inapima unyevu, mikunjo, jua, vitundu na rangi kwa usahihi — kisha tunakutibu na kukupatia bidhaa sahihi.',
+    'an.p1': 'Ramani ya unyevu · vitundu · madoa', 'an.p2': 'Uchambuzi wa jua na rangi', 'an.p3': 'Ripoti + ratiba',
+    'an.t1v': 'sek 10', 'an.t1l': 'muda wa upimaji', 'an.t2v': '5-kwa-1', 'an.t2l': 'vipimo vya ngozi', 'an.t3v': 'Bure', 'an.t3l': 'upimaji tena siku 30',
+    'an.video': 'Mashine ya upimaji — tazama', 'an.mins': 'dak',
+    'an.notes': 'Maelezo (shida ya ngozi…)',
   },
 }
 
@@ -232,6 +382,10 @@ const IMG = {
     'https://i.pinimg.com/736x/76/23/30/7623306e996969be8abafe93c06e7080.jpg',
   beautyTips:
     'https://i.pinimg.com/736x/cd/9e/db/cd9edbe1ee2eb6854597cb1bea303902.jpg',
+  glowBright:
+    'https://i.pinimg.com/736x/f6/9c/dd/f69cddbc1ffca4ea96e1c6b141c60228.jpg',
+  glowNourish:
+    'https://i.pinimg.com/736x/14/f0/33/14f033ca25e1e6e585b346c8851997a8.jpg',
   perfBoss:
     'https://i.pinimg.com/736x/ca/01/74/ca017483b8f5e65b3dbd866c69683dc4.jpg',
   perf9pm:
@@ -893,6 +1047,83 @@ const PERFUME_SETS = [
   },
 ]
 
+/* ---------- Kiswahili catalog copy (short desc + detail) ---------- */
+const PRODUCT_SW = {
+  1: { d: 'Serum ya vitamin C + hyaluronic kwa mng’ao na rangi sawa.', l: 'Serum yetu inachanganya vitamin C na hyaluronic kung’arisha na kulainisha ngozi — bila muwasho.' },
+  2: { d: 'Rangi nyepesi ya matte inadumu saa 12 bila kukausha.', l: 'Matte laini kama hariri inakaa saa 12 bila kuhama, midomo inabaki laini na vitamin E.' },
+  3: { d: 'Maji ya waridi yanayonyesha na kuburudisha papo hapo.', l: 'Maji ya Damask rose yanarejesha unyevu na kutuliza wekundu — nzuri hata juu ya makeup.' },
+  4: { d: 'Foundation ya kati inayojengeka, rangi 30.', l: 'Rangi zinazofanana na ngozi kwa fundi usioonekana kama barakoa, na hyaluronic kwa mng’ao.' },
+  5: { d: 'Inayeyusha makeup na SPF huku ikilisha ngozi.', l: 'Balm laini inayeyuka kuyeyusha makeup na uchafu — mafuta ya camellia hayaachi ukavu.' },
+  6: { d: 'Vivuli 12 vya joto — laini, havimwagi.', l: 'Rangi 12 za joto kuanzia shimmer hadi matte, laini na zinadumu saa 14.' },
+  7: { d: 'Vitamin C 20% kwa madoa na ngozi iliyofifia.', l: 'Serum ya vitamin C 20% na ferulic acid inafifisha madoa na kung’arisha — nyepesi na ya haraka.' },
+  8: { d: 'Brashi 12 laini kwa uso, macho na midomo.', l: 'Brashi 12 za vegan kwa kuchanganya bila shida — na pochi ya safari.' },
+  9: { d: 'Peptides + mbadala wa retinol kwa mikunjo.', l: 'Cream ya usiku yenye peptides na bakuchiol inaimarisha ngozi ndani ya wiki 4.' },
+  10: { d: 'Foundation yenye unyevu, rangi 24.', l: 'Foundation yenye hyaluronic kwa ngozi yenye afya, inayojengeka na kudumu saa 12.' },
+  11: { d: 'Unyevu wa haraka kwa uso, mikono na mwili.', l: 'Cream maarufu nyepesi na vitamin E — inaingia haraka, ngozi laini bila mafuta.' },
+  12: { d: 'Shea + cocoa kwa lishe ya saa 48.', l: 'Shea, cocoa na almond kwa unyevu wa saa 48 — harufu ya vanilla, bila parabens.' },
+  13: { d: 'Lotion ya shea kwa ngozi kavu sana.', l: 'Lotion ya shea na almond kwa ngozi kavu — inaingia haraka na kulinda unyevu saa 24.' },
+  14: { d: 'SPF 50 isiyoacha weupe, salama.', l: 'SPF 50 ya madini haina weupe wala muwasho — nzuri chini ya makeup, sugu kwa maji.' },
+  15: { d: 'Cream asilia ya vegan — ngozi laini yenye mng’ao.', l: 'Bakina ni chapa safi ya vegan inayofanya ngozi kuwa laini na yenye mng’ao wa lulu.' },
+  16: { d: 'Vita B5 kwa ngozi tulivu na yenye afya.', l: 'Serum ya vitamin B5 inatuliza muwasho na kulainisha mistari midogo.' },
+  17: { d: 'Lotion ya shea na vanilla, saizi ya familia.', l: 'Dove yenye shea na vanilla kwa ngozi laini — inanukia vizuri, inafaa familia nzima.' },
+  18: { d: 'Sabuni laini kwenye mitungi ya kifahari.', l: 'Sabuni ya Lixouva kwenye mitungi yenye vifuniko vya dhahabu — povu zuri na ngozi laini.' },
+  19: { d: 'Lotion yenye unyevu mwingi kwa ngozi kavu.', l: 'Ozone mpya yenye unyevu wa ndani — ngozi laini na yenye mng’ao siku nzima.' },
+  20: { d: 'Serum ya mafuta kwa mng’ao na ulaini.', l: 'Serum ya mafuta ya mimea inalisha na kung’arisha — matone 2-3 chini ya cream.' },
+}
+
+const PERFUME_SW = {
+  201: { d: 'EDT ya mbao 100ml — harufu ya jioni.', l: 'Boss Bottled Night ni manukato ya mbao kwa mwanaume mwenye malengo — cardamom na musk.' },
+  202: { d: 'Harufu kali ya usiku — tamu na viungo.', l: '9PM Rebel ya Afnan ni tamu na vanilla — inadumu usiku mzima.' },
+  203: { d: 'Parfum kali ya viungo kwa usiku wa kimahaba.', l: 'Azzaro Most Wanted ni kali na yenye mvuto — lazima kwa mkusanyiko.' },
+  204: { d: 'Orchid nyeusi na viungo — ya kisasa.', l: 'Zara Man ni ya kifahari na inadumu muda mrefu — chaguo la busara.' },
+  205: { d: 'Ikoniki safi — bergamot na ambroxan.', l: 'Sauvage ya Dior ni manukato safi yanayopendwa duniani.' },
+  206: { d: 'Harufu safi ya bahari — kwa wote.', l: 'Matelot ni harufu safi ya bahari na machungwa — kila siku.' },
+  207: { d: 'Tamutamu ya Kiarabu — laini na ya kike.', l: 'Mousuf ni tamu na maua — nyepesi na nzuri kwa kila siku.' },
+  208: { d: 'Joto la mdalasini na tende — kwa wote.', l: 'Khamrah ni tamu ya mdalasini na tende — joto na inadumu.' },
+  209: { d: 'Oud nzito — ya kifalme.', l: 'Oud Royal ni oud nzito na amber — tajiri na isiyosahaulika.' },
+  210: { d: 'Moshi na limao — nguvu kubwa.', l: 'Club de Nuit inadumu saa 10+ — sifa nyingi kwa kunyunyizia.' },
+  211: { d: 'Maua na musk — siri laini.', l: 'Suspenso ni maua ya kike yanayokaa siku nzima — maridadi.' },
+  212: { d: 'Vanilla laini — tamu na ya kupendeza.', l: 'Vanilla Musk ni vanilla na musk — joto na inayovutia.' },
+}
+
+const SET_SW = {
+  101: 'Ratiba bora kwa ngozi yenye mng’ao', 102: 'Kila kitu kwa muonekano kamili',
+  103: 'Kwa usiku unaostahili mng’ao', 104: 'Vitu muhimu vya spa nyumbani',
+  105: 'Brashi + vipendwa vya uso', 106: 'Ulinzi wa ngozi + unyevu wa kila siku',
+  107: 'Vipendwa vyetu maarufu sanduku moja', 108: 'Ratiba ya vitamin C kwa mng’ao',
+  109: 'Ulaini wa mwili mzima', 110: 'Matibabu ya usiku ya kifahari',
+  111: 'Vitamin C + SPF kufifisha madoa', 112: 'Chupa za pink kwa ulaini wa mwili',
+  113: 'Vipodozi vya pink na kung’aa', 114: 'Kijani tulivu — utulivu na uimara',
+  115: 'Mimea na mafuta kwa mng’ao wa kila siku', 116: 'Matibabu ya uso kwa ngozi laini',
+  117: 'Mshirika wako wa ngozi yenye afya',
+  301: 'Manukato ya Kay Ali matamu na laini', 302: 'Matatu bora ya kike sanduku moja',
+  303: 'Matamu kama vanilla na viungo', 304: 'Jifafanue — safi na nzito',
+  305: 'Nguvu za ofisini — Boss, Azzaro na Sauvage', 306: 'Sanduku maridadi la zawadi',
+  307: 'Wanyama wa usiku — 9PM na Club', 308: 'Anasa ya dhahabu — ngangaa',
+  309: 'Mrembo na wa kimahaba', 310: 'Matatu ya wanaume ya kila siku',
+}
+
+const CAT_SW = { Skincare: 'cat.skincare', Makeup: 'cat.makeup', Body: 'cat.body', 'Sun Care': 'cat.suncare' }
+const AUD_SW = { Men: 'aud.men', Women: 'aud.women', Both: 'aud.both' }
+
+const locP = (p, lang) => {
+  const s = lang === 'sw' ? PRODUCT_SW[p.id] : null
+  return s ? { ...p, desc: s.d || p.desc, longDesc: s.l || p.longDesc } : p
+}
+const locF = (p, lang) => {
+  const s = lang === 'sw' ? PERFUME_SW[p.id] : null
+  return s ? { ...p, desc: s.d || p.desc, longDesc: s.l || p.longDesc } : p
+}
+const locS = (s, lang) => (lang === 'sw' && SET_SW[s.id] ? { ...s, tagline: SET_SW[s.id] } : s)
+const catL = (c, t) => (CAT_SW[c] ? t(CAT_SW[c]) : c)
+const audL = (a, t) => (AUD_SW[a] ? t(AUD_SW[a]) : a)
+const stL = (s, t) => t('st.' + String(s).toLowerCase())
+
+const PAY_LABELS = {
+  en: { card: 'Credit / Debit card', mobile: 'Mobile money (M-Pesa, Tigo Pesa, Airtel Money)', cod: 'Cash on delivery' },
+  sw: { card: 'Kadi ya benki', mobile: 'Pesa kwa simu (M-Pesa, Tigo Pesa, Airtel Money)', cod: 'Lipa ukipokea' },
+}
+
 const TESTIMONIALS = [
   {
     quote:
@@ -915,10 +1146,10 @@ const TESTIMONIALS = [
 ]
 
 const FEATURES = [
-  { icon: '🐰', title: 'Cruelty-Free', text: 'Never tested on animals. Certified Leaping Bunny approved.' },
-  { icon: '🌿', title: 'Clean Formula', text: 'No parabens, sulfates, or synthetic fragrance. Ever.' },
-  { icon: '✨', title: 'Dermatologist Tested', text: 'Gentle enough for sensitive skin, proven by science.' },
-  { icon: '♻️', title: 'Eco Packaging', text: 'Recyclable glass and refillable compacts on every line.' },
+  { icon: '🐰', tk: 'feat.1t', dk: 'feat.1d' },
+  { icon: '🌿', tk: 'feat.2t', dk: 'feat.2d' },
+  { icon: '✨', tk: 'feat.3t', dk: 'feat.3d' },
+  { icon: '♻️', tk: 'feat.4t', dk: 'feat.4d' },
 ]
 
 const FREE_SHIPPING = 100000
@@ -1037,7 +1268,69 @@ function Navbar({ cartCount, user, onCart, onHome, onProducts, onPerfume, onSets
 }
 
 /* ---------- Home sections ---------- */
-function Hero() {
+/* ---------- Hero glow stories: brightening + nourishment ---------- */
+const GLOW = {
+  bright: { img: IMG.glowBright, products: [7, 1], set: 111 },
+  nourish: { img: IMG.glowNourish, products: [12, 13], set: 109 },
+}
+
+function GlowModal({ kind, onClose, onProduct, onSet }) {
+  const { t } = useLang()
+  const g = GLOW[kind]
+  const products = g.products.map((id) => PRODUCTS.find((p) => p.id === id)).filter(Boolean)
+  const set = SETS.find((s) => s.id === g.set)
+  useEffect(() => {
+    const close = (e) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', close)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', close)
+      document.body.style.overflow = ''
+    }
+  }, [onClose])
+  return (
+    <div className="lightbox" onClick={onClose} role="dialog" aria-modal="true" aria-label={t(kind === 'bright' ? 'glow.bright' : 'glow.nourish')}>
+      <div className="glow-card" onClick={(e) => e.stopPropagation()}>
+        <button className="lightbox-close glow-close" onClick={onClose} aria-label={t('common.close')}>
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+            <path d="M18 6 6 18M6 6l12 12" />
+          </svg>
+        </button>
+        <div className="glow-hero">
+          <img src={g.img} alt={t(kind === 'bright' ? 'glow.bright' : 'glow.nourish')} />
+          <div className="glow-hero-text">
+            <p className="eyebrow">{t('glow.for')}</p>
+            <h3>{t(kind === 'bright' ? 'glow.bright' : 'glow.nourish')}</h3>
+          </div>
+        </div>
+        <p className="glow-label">{t('glow.use')}</p>
+        <div className="glow-list">
+          {products.map((p) => (
+            <button key={p.id} type="button" className="glow-row" onClick={() => onProduct(p)}>
+              <img src={p.image} alt={p.name} />
+              <span className="glow-row-info"><strong>{p.name}</strong><span>{formatPrice(p.price)}</span></span>
+              <span className="view-set">{t('orders.details')}</span>
+            </button>
+          ))}
+        </div>
+        {set && (
+          <>
+            <p className="glow-label">{t('glow.set')}</p>
+            <button type="button" className="glow-row glow-set-row" onClick={() => onSet(set)}>
+              <img src={set.image} alt={set.name} />
+              <span className="glow-row-info"><strong>{set.name}</strong><span>{formatPrice(set.price)}</span></span>
+              <span className="view-set">{t('sets.view')}</span>
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function Hero({ onGlow }) {
   const { t } = useLang()
   return (
     <section className="hero" id="top">
@@ -1065,18 +1358,40 @@ function Hero() {
             <div><strong>100%</strong><span>{t('hero.vegan')}</span></div>
           </div>
         </div>
-        <div className="hero-visual" aria-hidden="true">
+        <div className="hero-visual">
           <div className="hero-card main-card">
             <img src={IMG.heroMask} alt="" />
-            <p>Real results, real glow</p>
+            <p>{t('hero.c1')}</p>
           </div>
           <div className="hero-card float-card-1">
             <img src={IMG.heroBath} alt="" />
-            <p>Self-care Sundays</p>
+            <p>{t('hero.c2')}</p>
           </div>
           <div className="hero-card float-card-2">
             <p className="stars">★★★★★</p>
-            <small>"My holy grail serum!"</small>
+            <small>{t('hero.c3')}</small>
+          </div>
+          <div
+            className="hero-card float-card-3"
+            onClick={() => onGlow && onGlow('bright')}
+            role={onGlow ? 'button' : undefined}
+            tabIndex={onGlow ? 0 : undefined}
+            onKeyDown={(e) => e.key === 'Enter' && onGlow && onGlow('bright')}
+          >
+            <img src={IMG.glowBright} alt={t('glow.bright')} />
+            <p className="glow-line">{t('glow.bright')}</p>
+            <span className="glow-tap">{t('orders.details')}</span>
+          </div>
+          <div
+            className="hero-card float-card-4"
+            onClick={() => onGlow && onGlow('nourish')}
+            role={onGlow ? 'button' : undefined}
+            tabIndex={onGlow ? 0 : undefined}
+            onKeyDown={(e) => e.key === 'Enter' && onGlow && onGlow('nourish')}
+          >
+            <img src={IMG.glowNourish} alt={t('glow.nourish')} />
+            <p className="glow-line">{t('glow.nourish')}</p>
+            <span className="glow-tap">{t('orders.details')}</span>
           </div>
         </div>
       </div>
@@ -1099,7 +1414,7 @@ function About() {
           <div className="about-photo">
             <img src={IMG.aboutCosmetics} alt="Our product range" loading="lazy" />
           </div>
-          <p className="about-caption">Inside our studio & boutique</p>
+          <p className="about-caption">{t('ab.caption')}</p>
         </div>
         <div className="about-text">
           <p className="eyebrow">{t('about.eyebrow')}</p>
@@ -1110,9 +1425,9 @@ function About() {
             blended from botanical actives, and finished in packaging you'll want on your shelf.
           </p>
           <ul className="about-list">
-            <li>Sourced from certified sustainable suppliers</li>
-            <li>Clinically tested on real skin, never animals</li>
-            <li>Free returns within 30 days — no questions asked</li>
+            <li>{t('ab.l1')}</li>
+            <li>{t('ab.l2')}</li>
+            <li>{t('ab.l3')}</li>
           </ul>
         </div>
       </div>
@@ -1123,7 +1438,8 @@ function About() {
 /* ---------- Product cards & detail ---------- */
 function ProductCard({ product, onAdd, onSelect, inBag }) {
   const [wished, setWished] = useState(false)
-  const { t } = useLang()
+  const { t, lang } = useLang()
+  product = locP(product, lang)
   return (
     <article
       className="product-card"
@@ -1151,7 +1467,7 @@ function ProductCard({ product, onAdd, onSelect, inBag }) {
         </button>
       </div>
       <div className="product-body">
-        <span className="category">{product.category}</span>
+        <span className="category">{catL(product.category, t)}</span>
         <h3>{product.name}</h3>
         <p>{product.desc}</p>
         <div className="product-foot">
@@ -1178,9 +1494,9 @@ function ProductCard({ product, onAdd, onSelect, inBag }) {
 }
 
 const STEPS = [
-  { n: '1', title: 'Place your order', text: 'Fill in your delivery details below — it takes under a minute.' },
-  { n: '2', title: 'We confirm & pack', text: 'You get a confirmation email while we hand-wrap your items.' },
-  { n: '3', title: 'Fast delivery', text: 'Ships within 24h. Free shipping on orders over TShs 100,000.' },
+  { n: '1', tk: 'steps.1t', dk: 'steps.1d' },
+  { n: '2', tk: 'steps.2t', dk: 'steps.2d' },
+  { n: '3', tk: 'steps.3t', dk: 'steps.3d' },
 ]
 
 const PAYMENT_LABELS = {
@@ -1188,6 +1504,7 @@ const PAYMENT_LABELS = {
   mobile: 'Mobile money (M-Pesa, Tigo Pesa, Airtel Money)',
   cod: 'Cash on delivery',
 }
+const payLabel = (k, lang) => (PAY_LABELS[lang] && PAY_LABELS[lang][k]) || PAYMENT_LABELS[k] || k
 
 function buildOrder(items, form, subtotal, shipping, total) {
   return {
@@ -1207,7 +1524,8 @@ function ProductDetail({ product, onBack, addOrder }) {
   const [ordered, setOrdered] = useState(null)
   const [processing, setProcessing] = useState(false)
   const [form, setForm] = useState({ name: '', phone: '', address: '', city: '', payment: 'card' })
-  const { t } = useLang()
+  const { t, lang } = useLang()
+  product = product.brand ? locF(product, lang) : locP(product, lang)
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
   const total = product.price * qty
   const shipping = total >= FREE_SHIPPING ? 0 : SHIPPING_FEE
@@ -1261,9 +1579,9 @@ function ProductDetail({ product, onBack, addOrder }) {
             {product.badge && <span className="badge">{product.badge}</span>}
           </div>
           <div className="detail-info">
-            <span className="category">{product.category}</span>
+            <span className="category">{product.brand ? `${product.brand} · ${audL(product.audience, t)}` : catL(product.category, t)}</span>
             <h1>{product.name}</h1>
-            <p className="stars">★★★★★ <small>(312 reviews)</small></p>
+            <p className="stars">★★★★★ <small>(312 {t('common.reviews')})</small></p>
             <p className="detail-price">{formatPrice(product.price)}</p>
             <p className="detail-desc">{product.longDesc}</p>
 
@@ -1278,21 +1596,21 @@ function ProductDetail({ product, onBack, addOrder }) {
             </div>
 
             <ul className="perks">
-              <li>✓ Free shipping over TShs 100,000</li>
-              <li>✓ 30-day free returns</li>
-              <li>✓ Ships within 24 hours</li>
+              <li>✓ {t('perk.ship')}</li>
+              <li>✓ {t('perk.returns')}</li>
+              <li>✓ {t('perk.24h')}</li>
             </ul>
           </div>
         </div>
 
         <div className="order-section">
-          <h2>Order now</h2>
+          <h2>{t('detail.place')}</h2>
           <div className="steps-grid">
             {STEPS.map((s) => (
               <div key={s.n} className="step">
                 <span className="step-n">{s.n}</span>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
+                <h3>{t(s.tk)}</h3>
+                <p>{t(s.dk)}</p>
               </div>
             ))}
           </div>
@@ -1306,9 +1624,9 @@ function ProductDetail({ product, onBack, addOrder }) {
             <div className="form-row">
               <input name="city" placeholder={t('co.city')} value={form.city} onChange={handleChange} required disabled={processing} />
               <select name="payment" value={form.payment} onChange={handleChange} disabled={processing}>
-                <option value="card">Credit / Debit card</option>
-                <option value="mobile">Mobile money (M-Pesa, Tigo Pesa, Airtel Money)</option>
-                <option value="cod">Cash on delivery</option>
+                <option value="card">{t('pay.card')}</option>
+                <option value="mobile">{t('pay.mobile')}</option>
+                <option value="cod">{t('pay.cod')}</option>
               </select>
             </div>
             <button
@@ -1352,7 +1670,7 @@ function Products({ onAdd, onSelect, cartItems, onSeeAll }) {
                 className={`chip ${filter === c ? 'active' : ''}`}
                 onClick={() => setFilter(c)}
               >
-                {c}
+                {c === 'All' ? t('common.all') : catL(c, t)}
               </button>
             ))}
           </div>
@@ -1388,8 +1706,9 @@ function loadShopView() {
   }
 }
 
-function ShopToolbar({ query, onQuery, viewMode, onViewMode, filters, active, onFilter, searchLabel }) {
+function ShopToolbar({ query, onQuery, viewMode, onViewMode, filters, active, onFilter, searchLabel, flabel }) {
   const { t } = useLang()
+  const fl = flabel || ((c) => c)
   return (
     <div className="shop-toolbar">
       <div className="shop-search">
@@ -1449,7 +1768,7 @@ function ShopToolbar({ query, onQuery, viewMode, onViewMode, filters, active, on
             className={`chip ${active === c ? 'active' : ''}`}
             onClick={() => onFilter(c)}
           >
-            {c}
+            {fl(c)}
           </button>
         ))}
       </div>
@@ -1495,6 +1814,7 @@ function ProductsPage({ onAdd, onSelect, cartItems }) {
             active={filter}
             onFilter={setFilter}
             searchLabel={t('search.products')}
+            flabel={(c) => (c === 'All' ? t('common.all') : catL(c, t))}
           />
           <p className="result-count">{visible.length} {visible.length === 1 ? t('common.item') : t('common.items')}</p>
         </div>
@@ -1526,7 +1846,8 @@ const PERFUME_FILTERS = ['All', 'Men', 'Women', 'Both']
 
 function PerfumeCard({ product, onAdd, onSelect, inBag }) {
   const [wished, setWished] = useState(false)
-  const { t } = useLang()
+  const { t, lang } = useLang()
+  product = locF(product, lang)
   return (
     <article
       className="product-card"
@@ -1540,7 +1861,7 @@ function PerfumeCard({ product, onAdd, onSelect, inBag }) {
         {product.badge ? (
           <span className="badge">{product.badge}</span>
         ) : (
-          <span className="badge">{product.audience}</span>
+          <span className="badge">{audL(product.audience, t)}</span>
         )}
         <button
           type="button"
@@ -1558,7 +1879,7 @@ function PerfumeCard({ product, onAdd, onSelect, inBag }) {
         </button>
       </div>
       <div className="product-body">
-        <span className="category">{product.brand} · {product.audience}</span>
+        <span className="category">{product.brand} · {audL(product.audience, t)}</span>
         <h3>{product.name}</h3>
         <p>{product.desc}</p>
         <div className="product-foot">
@@ -1588,7 +1909,7 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
   const [filter, setFilter] = useState('All')
   const [query, setQuery] = useState('')
   const [viewMode, setViewMode] = useState(loadShopView)
-  const { t } = useLang()
+  const { t, lang } = useLang()
   const changeView = (m) => {
     setViewMode(m)
     try {
@@ -1623,6 +1944,7 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
               active={filter}
               onFilter={setFilter}
               searchLabel={t('search.perfumes')}
+              flabel={(c) => (c === 'All' ? t('common.all') : audL(c, t))}
             />
             <p className="result-count">{visible.length} {visible.length === 1 ? t('common.scent') : t('common.scents')}</p>
           </div>
@@ -1657,30 +1979,33 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
             </p>
           </div>
           <div className="product-grid">
-            {visibleSets.map((set) => (
-              <article
-                key={set.id}
-                className="product-card set-card"
-                onClick={() => onSelectSet(set)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && onSelectSet(set)}
-              >
-                <div className="product-img">
-                  <img src={set.image} alt={set.name} loading="lazy" />
-                  <span className="badge">{set.audience} · {set.productIds.length} pcs</span>
-                </div>
-                <div className="product-body">
-                  <span className="category">Perfume Set · {set.audience}</span>
-                  <h3>{set.name}</h3>
-                  <p>{set.tagline}</p>
-                  <div className="product-foot">
-                    <span className="price">{formatPrice(set.price)}</span>
-                    <span className="view-set">View set →</span>
+            {visibleSets.map((raw) => {
+              const set = locS(raw, lang)
+              return (
+                <article
+                  key={set.id}
+                  className="product-card set-card"
+                  onClick={() => onSelectSet(raw)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === 'Enter' && onSelectSet(raw)}
+                >
+                  <div className="product-img">
+                    <img src={set.image} alt={set.name} loading="lazy" />
+                    <span className="badge">{audL(set.audience, t)} · {set.productIds.length} pcs</span>
                   </div>
-                </div>
-              </article>
-            ))}
+                  <div className="product-body">
+                    <span className="category">{t('nav.perfume')} {t('set.word')} · {audL(set.audience, t)}</span>
+                    <h3>{set.name}</h3>
+                    <p>{set.tagline}</p>
+                    <div className="product-foot">
+                      <span className="price">{formatPrice(set.price)}</span>
+                      <span className="view-set">{t('sets.view')}</span>
+                    </div>
+                  </div>
+                </article>
+              )
+            })}
           </div>
           {visibleSets.length === 0 && (
             <div className="cart-empty">
@@ -1694,9 +2019,10 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
 }
 
 function PerfumeSetDetailPage({ set, onBack, onAddToBag }) {
-  const products = set.productIds.map((id) => PERFUMES.find((p) => p.id === id)).filter(Boolean)
+  const { t, lang } = useLang()
+  set = locS(set, lang)
+  const products = set.productIds.map((id) => locF(PERFUMES.find((p) => p.id === id), lang)).filter(Boolean)
   const [added, setAdded] = useState(false)
-  const { t } = useLang()
 
   const handleAdd = () => {
     onAddToBag({
@@ -1718,15 +2044,15 @@ function PerfumeSetDetailPage({ set, onBack, onAddToBag }) {
             <img src={set.image} alt={set.name} />
           </div>
           <div className="detail-info">
-            <span className="category">Perfume Set · {set.audience}</span>
+            <span className="category">{t('nav.perfume')} {t('set.word')} · {audL(set.audience, t)}</span>
             <h1>{set.name}</h1>
-            <p className="stars">★★★★★ <small>(96 reviews)</small></p>
+            <p className="stars">★★★★★ <small>(96 {t('common.reviews')})</small></p>
             <p className="detail-price">{formatPrice(set.price)}</p>
             <p className="detail-desc">{set.tagline}. {set.saveNote}.</p>
             <ul className="perks">
-              <li>✓ Original &amp; sealed bottles</li>
-              <li>✓ Gift-wrapped on request</li>
-              <li>✓ Ships within 24 hours</li>
+              <li>✓ {t('perk.sealed')}</li>
+              <li>✓ {t('perk.giftreq')}</li>
+              <li>✓ {t('perk.24h')}</li>
             </ul>
             <div className="hero-actions" style={{ marginTop: 26 }}>
               <button className="btn" onClick={handleAdd}>
@@ -1743,7 +2069,7 @@ function PerfumeSetDetailPage({ set, onBack, onAddToBag }) {
               <div key={p.id} className="set-product-row">
                 <img src={p.image} alt={p.name} />
                 <div className="set-product-info">
-                  <span className="category">{p.brand} · {p.audience}</span>
+                  <span className="category">{p.brand} · {audL(p.audience, t)}</span>
                   <strong>{p.name}</strong>
                   <p>{p.desc}</p>
                 </div>
@@ -1767,7 +2093,7 @@ function PerfumeSetDetailPage({ set, onBack, onAddToBag }) {
 
 /* ---------- Sets ---------- */
 function SetsPage({ onSelectSet }) {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   return (
     <section className="sets-page section">
       <div className="container">
@@ -1779,30 +2105,33 @@ function SetsPage({ onSelectSet }) {
           </p>
         </div>
         <div className="product-grid">
-          {SETS.map((set) => (
-            <article
-              key={set.id}
-              className="product-card set-card"
-              onClick={() => onSelectSet(set)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && onSelectSet(set)}
-            >
-              <div className="product-img">
-                <img src={set.image} alt={set.name} loading="lazy" />
-                <span className="badge">{set.productIds.length} {t('set.products')}</span>
-              </div>
-              <div className="product-body">
-                <span className="category">Set</span>
-                <h3>{set.name}</h3>
-                <p>{set.tagline}</p>
-                <div className="product-foot">
-                  <span className="price">{formatPrice(set.price)}</span>
-                  <span className="view-set">{t('sets.view')}</span>
+          {SETS.map((raw) => {
+            const set = locS(raw, lang)
+            return (
+              <article
+                key={set.id}
+                className="product-card set-card"
+                onClick={() => onSelectSet(raw)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && onSelectSet(raw)}
+              >
+                <div className="product-img">
+                  <img src={set.image} alt={set.name} loading="lazy" />
+                  <span className="badge">{set.productIds.length} {t('set.products')}</span>
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="product-body">
+                  <span className="category">{t('set.word')}</span>
+                  <h3>{set.name}</h3>
+                  <p>{set.tagline}</p>
+                  <div className="product-foot">
+                    <span className="price">{formatPrice(set.price)}</span>
+                    <span className="view-set">{t('sets.view')}</span>
+                  </div>
+                </div>
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>
@@ -1810,9 +2139,10 @@ function SetsPage({ onSelectSet }) {
 }
 
 function SetDetailPage({ set, onBack, onAddToBag }) {
-  const products = set.productIds.map((id) => PRODUCTS.find((p) => p.id === id))
+  const { t, lang } = useLang()
   const [added, setAdded] = useState(false)
-  const { t } = useLang()
+  set = locS(set, lang)
+  const products = set.productIds.map((id) => locP(PRODUCTS.find((p) => p.id === id), lang))
 
   const handleAdd = () => {
     onAddToBag({
@@ -1834,15 +2164,15 @@ function SetDetailPage({ set, onBack, onAddToBag }) {
             <img src={set.image} alt={set.name} />
           </div>
           <div className="detail-info">
-            <span className="category">Curated Set</span>
+            <span className="category">{t('set.curated')}</span>
             <h1>{set.name}</h1>
-            <p className="stars">★★★★★ <small>(148 reviews)</small></p>
+            <p className="stars">★★★★★ <small>(148 {t('common.reviews')})</small></p>
             <p className="detail-price">{formatPrice(set.price)}</p>
             <p className="detail-desc">{set.tagline}. {set.saveNote}.</p>
             <ul className="perks">
-              <li>✓ Free shipping over TShs 100,000</li>
-              <li>✓ Gift-wrapped in signature packaging</li>
-              <li>✓ Ships within 24 hours</li>
+              <li>✓ {t('perk.ship')}</li>
+              <li>✓ {t('perk.gift')}</li>
+              <li>✓ {t('perk.24h')}</li>
             </ul>
             <div className="hero-actions" style={{ marginTop: 26 }}>
               <button className="btn" onClick={handleAdd}>
@@ -1946,9 +2276,9 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
               <input name="address" placeholder={t('co.address')} value={form.address} onChange={handleChange} required disabled={processing} />
               <input name="city" placeholder={t('co.city')} value={form.city} onChange={handleChange} required disabled={processing} />
               <select name="payment" value={form.payment} onChange={handleChange} disabled={processing}>
-                <option value="card">Credit / Debit card</option>
-                <option value="mobile">Mobile money (M-Pesa, Tigo Pesa, Airtel Money)</option>
-                <option value="cod">Cash on delivery</option>
+                <option value="card">{t('pay.card')}</option>
+                <option value="mobile">{t('pay.mobile')}</option>
+                <option value="cod">{t('pay.cod')}</option>
               </select>
               <button type="submit" className={`btn btn-wide ${processing ? 'loading' : ''}`} disabled={processing}>
                 {processing ? (
@@ -1979,8 +2309,10 @@ function CartPage({ items, changeQty, removeItem, onContinueShopping, onComplete
               Order <strong>#{order.num}</strong> · Total <strong>{formatPrice(order.total)}</strong>
             </p>
             <p>
-              Asante sana, {form.name || 'dear customer'}! Your {order.items.reduce((s, i) => s + i.qty, 0)} item(s) will be packed with care and shipped to{' '}
-              {form.city || 'your address'} within 24 hours. A confirmation SMS and email are on their way.
+              {t('co.thanksLong')
+                .replace('{name}', form.name || 'dear customer')
+                .replace('{count}', String(order.items.reduce((s, i) => s + i.qty, 0)))
+                .replace('{city}', form.city || 'your address')}
             </p>
             <button className="btn" onClick={onContinueShopping}>{t('co.thanks')}</button>
           </div>
@@ -2069,7 +2401,7 @@ function OrdersPage({ orders, onSelectOrder, onShop }) {
                   className={`chip ${filter === s ? 'active' : ''}`}
                   onClick={() => setFilter(s)}
                 >
-                  {s}
+                  {s === 'All' ? t('common.all') : stL(s, t)}
                 </button>
               ))}
             </div>
@@ -2083,8 +2415,8 @@ function OrdersPage({ orders, onSelectOrder, onShop }) {
           </div>
         ) : visible.length === 0 ? (
           <div className="cart-empty">
-            <p>No {filter} orders.</p>
-            <button className="btn btn-outline" onClick={() => setFilter('All')}>Show all</button>
+            <p>{t('or.none').replace('{f}', filter === 'All' ? '' : stL(filter, t))}</p>
+            <button className="btn btn-outline" onClick={() => setFilter('All')}>{t('or.showAll')}</button>
           </div>
         ) : (
           <div className="orders-list">
@@ -2100,7 +2432,7 @@ function OrdersPage({ orders, onSelectOrder, onShop }) {
                   onKeyDown={(e) => e.key === 'Enter' && onSelectOrder(o)}
                 >
                   <div className="order-row-main">
-                    <strong>#{o.num} <span className="order-kind">{isService ? '· Service' : '· Products'}</span></strong>
+                    <strong>#{o.num} <span className="order-kind">{isService ? t('ord.svc') : t('ord.prod')}</span></strong>
                     <span className="order-date">
                       {new Date(o.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
                     </span>
@@ -2111,7 +2443,7 @@ function OrdersPage({ orders, onSelectOrder, onShop }) {
                     ))}
                     {o.items.length > 3 && <span>+{o.items.length - 3}</span>}
                   </div>
-                  <span className={`order-status st-${o.status.toLowerCase()}`}>{o.status}</span>
+                  <span className={`order-status st-${o.status.toLowerCase()}`}>{stL(o.status, t)}</span>
                   <span className="order-total">{formatPrice(o.total)}</span>
                   <span className="view-set">{t('orders.details')}</span>
                 </article>
@@ -2127,7 +2459,7 @@ function OrdersPage({ orders, onSelectOrder, onShop }) {
 function OrderDetailPage({ order, onBack }) {
   const shipping = order.shipping
   const isService = order.items.some((i) => i.category === 'Service')
-  const { t } = useLang()
+  const { t, lang } = useLang()
   return (
     <section className="detail section">
       <div className="container">
@@ -2141,7 +2473,7 @@ function OrderDetailPage({ order, onBack }) {
                 Placed on {new Date(order.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
               </p>
             </div>
-            <span className={`order-status big st-${order.status.toLowerCase()}`}>{order.status}</span>
+            <span className={`order-status big st-${order.status.toLowerCase()}`}>{stL(order.status, t)}</span>
           </div>
 
           <div className="order-steps">
@@ -2151,7 +2483,7 @@ function OrderDetailPage({ order, onBack }) {
                 : i === 0
               return (
                 <span key={s} className={`order-step ${reached ? 'done' : ''}`}>
-                  <em>{i + 1}</em> {order.status === 'Processing' && i > 0 ? s.replace('Confirmed', 'Confirming').replace('Completed', 'Complete') : s}
+                  <em>{i + 1}</em> {stL(s, t)}
                 </span>
               )
             })}
@@ -2183,7 +2515,7 @@ function OrderDetailPage({ order, onBack }) {
                 <p>{order.customer.name}</p>
                 <p>{order.customer.phone}</p>
                 <p>{order.customer.address}, {order.customer.city}</p>
-                <p className="muted">{t('od.paidVia')} {PAYMENT_LABELS[order.customer.payment]}</p>
+                <p className="muted">{t('od.paidVia')} {payLabel(order.customer.payment, lang)}</p>
               </div>
             </div>
           </div>
@@ -2355,7 +2687,7 @@ function AuthPage({ mode, onSwitchMode, onSuccess, onBack }) {
             />
             <div className="auth-media-shade" aria-hidden="true" />
             <p className="auth-media-caption">
-              Browse thousands of beauty essentials to glow, shop, and shine with trusted formulas.
+              {t('auth.caption')}
             </p>
             <div className="auth-media-dots" aria-hidden="true">
               <span className="active" /><span /><span />
@@ -2369,14 +2701,15 @@ function AuthPage({ mode, onSwitchMode, onSuccess, onBack }) {
 
 /* ---------- Home extras ---------- */
 function Features() {
+  const { t } = useLang()
   return (
     <section className="features section-dark">
       <div className="container feature-grid">
         {FEATURES.map((f) => (
-          <div key={f.title} className="feature">
+          <div key={f.tk} className="feature">
             <span className="feature-icon">{f.icon}</span>
-            <h3>{f.title}</h3>
-            <p>{f.text}</p>
+            <h3>{t(f.tk)}</h3>
+            <p>{t(f.dk)}</p>
           </div>
         ))}
       </div>
@@ -2386,33 +2719,9 @@ function Features() {
 
 /* ---------- Services — advice + machine treatments ---------- */
 const SERVICES = [
-  {
-    id: 'advice',
-    tag: '1-on-1 Advice',
-    title: 'Personal Beauty Advice',
-    text: 'Tell us your skin goals — our beauticians build you a simple routine and tell you exactly what to buy (and what to skip).',
-    points: ['Skin-type & concern check', 'Custom routine plan', 'Free with any purchase'],
-    image: IMG.aboutCosmetics,
-    cta: 'Get free advice',
-  },
-  {
-    id: 'analyzer',
-    tag: 'AI Face Analyzer',
-    title: 'Face Analyzer Scan',
-    text: 'High-precision AI scan reads hydration, spots, pores, wrinkles and sun damage in 30 seconds — then we match products to your real skin.',
-    points: ['Hydration · spots · pores', 'Before / after tracking', 'TShs 15,000 — free over 100k'],
-    image: IMG.faceAnalyzer,
-    cta: 'Book a scan',
-  },
-  {
-    id: 'machine',
-    tag: 'Machine Treatment',
-    title: 'Machine Face Treatment',
-    text: 'Deep cleanse, hydra-glow and lifting with our pro facial machine. Instant glow before events — gentle for sensitive skin.',
-    points: ['Deep cleanse + hydra', 'Lifting & brightening', 'From TShs 45,000 / session'],
-    image: IMG.machineTreatment,
-    cta: 'Book treatment',
-  },
+  { id: 'advice', k: 'advice', image: IMG.aboutCosmetics },
+  { id: 'analyzer', k: 'analyzer', image: IMG.faceAnalyzer },
+  { id: 'machine', k: 'machine', image: IMG.machineTreatment },
 ]
 
 function Services({ onOpenAnalyzer, onOpenAdvice }) {
@@ -2441,14 +2750,14 @@ function Services({ onOpenAnalyzer, onOpenAdvice }) {
                 onKeyDown={clickable ? (e) => e.key === 'Enter' && handler && handler() : undefined}
               >
                 <div className="service-img">
-                  <img src={s.image} alt={s.title} loading="lazy" />
-                  <span className="badge">{s.tag}</span>
+                  <img src={s.image} alt={t(`svc.${s.k}.title`)} loading="lazy" />
+                  <span className="badge">{t(`svc.${s.k}.tag`)}</span>
                 </div>
                 <div className="service-body">
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
+                  <h3>{t(`svc.${s.k}.title`)}</h3>
+                  <p>{t(`svc.${s.k}.text`)}</p>
                   <ul className="service-points">
-                    {s.points.map((pt) => (
+                    {(t(`svc.${s.k}.points`) || []).map((pt) => (
                       <li key={pt}>✓ {pt}</li>
                     ))}
                   </ul>
@@ -2457,10 +2766,10 @@ function Services({ onOpenAnalyzer, onOpenAdvice }) {
                       className="btn btn-small service-cta"
                       onClick={(e) => { e.stopPropagation(); handler() }}
                     >
-                      {s.cta} →
+                      {t(`svc.${s.k}.cta`)} →
                     </button>
                   ) : (
-                    <a href="#contact" className="btn btn-small service-cta" onClick={(e) => e.stopPropagation()}>{s.cta}</a>
+                    <a href="#contact" className="btn btn-small service-cta" onClick={(e) => e.stopPropagation()}>{t(`svc.${s.k}.cta`)}</a>
                   )}
                 </div>
               </article>
@@ -2479,74 +2788,56 @@ const ANALYZER_POSTER =
   'https://i.pinimg.com/736x/46/4a/bf/464abf1a242130e7deacea9c5d9b465d.jpg'
 
 const ANALYZER_PACKAGES = [
-  {
-    id: 'essential',
-    name: 'Essential Scan',
-    price: 15000,
-    mins: 20,
-    desc: 'AI scan + digital skin report + exact product matches.',
-    points: ['Hydration · pores · spots · wrinkles', 'UV damage & pigment map', 'Personal product list'],
-  },
-  {
-    id: 'glow',
-    name: 'Scan + Glow Facial',
-    price: 45000,
-    mins: 45,
-    desc: 'Bestseller — scan plus machine mini-facial for instant glow.',
-    points: ['Everything in Essential', 'Machine cleanse + hydra', 'Scrub exfoliation included'],
-    badge: 'Most popular',
-  },
-  {
-    id: 'clinical',
-    name: 'Full Clinical Ritual',
-    price: 85000,
-    mins: 75,
-    desc: 'Scan + full machine treatment + mask + before/after tracking.',
-    points: ['Everything in Glow', 'Lifting + brightening pass', 'Mask + after-care plan'],
-  },
+  { id: 'essential', price: 15000, mins: 20 },
+  { id: 'glow', price: 45000, mins: 45, popular: true },
+  { id: 'clinical', price: 85000, mins: 75 },
 ]
 
 const SCRUB_OPTIONS = [
-  { id: 'none', name: 'No scrub', price: 0, desc: 'Scan / facial only' },
-  { id: 'gentle', name: 'Gentle enzyme scrub', price: 12000, desc: 'Sensitive-safe glow polish' },
-  { id: 'deep', name: 'Deep pore scrub', price: 18000, desc: 'Blackheads + texture reset' },
+  { id: 'none', price: 0 },
+  { id: 'gentle', price: 12000 },
+  { id: 'deep', price: 18000 },
 ]
 
-function nextDays(n) {
+function nextDays(n, lang) {
   const out = []
-  const fmt = new Intl.DateTimeFormat('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })
+  const fmt = new Intl.DateTimeFormat(lang === 'sw' ? 'sw-TZ' : 'en-GB', { weekday: 'short', day: 'numeric', month: 'short' })
+  const today = lang === 'sw' ? 'Leo' : 'Today'
+  const tomorrow = lang === 'sw' ? 'Kesho' : 'Tomorrow'
   for (let i = 0; i < n; i++) {
     const d = new Date()
     d.setDate(d.getDate() + i)
-    out.push({ key: d.toISOString().slice(0, 10), label: i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : fmt.format(d), sub: fmt.format(d) })
+    out.push({ key: d.toISOString().slice(0, 10), label: i === 0 ? today : i === 1 ? tomorrow : fmt.format(d), sub: fmt.format(d) })
   }
   return out
 }
-const SLOT_DAYS = nextDays(4)
 const SLOT_TIMES = ['09:00', '10:30', '12:00', '14:00', '15:30', '17:00', '18:30']
 
 function AnalyzerBookingPage({ onBack, addOrder }) {
+  const { t, lang } = useLang()
+  const days = nextDays(4, lang)
   const [pkgId, setPkgId] = useState('glow')
   const [scrubId, setScrubId] = useState('gentle')
-  const [day, setDay] = useState(SLOT_DAYS[1].key)
+  const [day, setDay] = useState(days[1].key)
   const [time, setTime] = useState('14:00')
   const [form, setForm] = useState({ name: '', phone: '', notes: '', payment: 'mobile' })
   const [processing, setProcessing] = useState(false)
   const [booking, setBooking] = useState(null)
-  const { t } = useLang()
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const pkg = ANALYZER_PACKAGES.find((p) => p.id === pkgId)
   const scrub = SCRUB_OPTIONS.find((s) => s.id === scrubId)
   const total = pkg.price + scrub.price
-  const dayLabel = (SLOT_DAYS.find((d) => d.key === day)?.label || day)
+  const pkgName = t(`pkg.${pkg.id}.name`)
+  const scrubName = t(`scrub.${scrub.id}.name`)
+  const dayLabel = (days.find((d) => d.key === day)?.label || day)
 
   const pay = (e) => {
     e.preventDefault()
     if (processing || !time || !day) return
     setProcessing(true)
     setTimeout(() => {
-      const itemName = `${pkg.name}${scrub.id !== 'none' ? ' + ' + scrub.name : ''} — ${dayLabel} ${time}`
+      const itemName = `${pkgName}${scrub.id !== 'none' ? ' + ' + scrubName : ''} — ${dayLabel} ${time}`
       const order = buildOrder(
         [{ id: 'svc-analyzer', name: itemName, category: 'Service', price: total, qty: 1, image: ANALYZER_POSTER }],
         { name: form.name, phone: form.phone, address: `Asma Store (in-store service)`, city: `${dayLabel} at ${time}${form.notes ? ' · ' + form.notes : ''}`, payment: form.payment },
@@ -2555,7 +2846,7 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
         total,
       )
       addOrder(order)
-      setBooking({ ...order, pkg: pkg.name, scrub: scrub.name, slot: `${dayLabel} at ${time}` })
+      setBooking({ ...order, pkg: pkgName, scrub: scrubName, slot: `${dayLabel} at ${time}` })
       setProcessing(false)
       window.scrollTo({ top: 0 })
     }, 2800)
@@ -2567,15 +2858,15 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
         <div className="container">
           <div className="order-success">
             <span className="success-icon">✓</span>
-            <h2>Booking confirmed!</h2>
+            <h2>{t('an.okTitle')}</h2>
             <p className="order-num">Booking <strong>#{booking.num}</strong> · Total <strong>{formatPrice(booking.total)}</strong></p>
             <div className="booking-lines">
-              <p><span>Service</span><span>{booking.pkg}</span></p>
-              <p><span>Scrub</span><span>{booking.scrub}</span></p>
-              <p><span>When</span><span>{booking.slot}</span></p>
-              <p><span>Guest</span><span>{form.name} · {form.phone}</span></p>
+              <p><span>{t('an.okService')}</span><span>{booking.pkg}</span></p>
+              <p><span>{t('an.okScrub')}</span><span>{booking.scrub}</span></p>
+              <p><span>{t('an.okWhen')}</span><span>{booking.slot}</span></p>
+              <p><span>{t('an.okGuest')}</span><span>{form.name} · {form.phone}</span></p>
             </div>
-            <p>Asante! Arrive 10 minutes early, no makeup needed. We’ll reconfirm by SMS. See it under “My Orders”.</p>
+            <p>{t('an.okThanks')}</p>
             <button className="btn" onClick={onBack}>{t('detail.continue')}</button>
           </div>
         </div>
@@ -2591,26 +2882,24 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
         <div className="analyzer-hero">
           <div className="analyzer-video">
             <video src={ANALYZER_VIDEO} poster={ANALYZER_POSTER} controls autoPlay muted loop playsInline preload="metadata" />
-            <span className="badge">3D AI Skin Analyzer — live demo</span>
+            <span className="badge">{t('an.video')}</span>
           </div>
           <div className="analyzer-intro">
-            <p className="eyebrow">In-store service · ~20–75 min</p>
-            <h1>Face Analyzer Scan &amp; Treatment</h1>
-            <p className="stars">★★★★★ <small>4.9 · 212 reviews</small></p>
+            <p className="eyebrow">{t('an.eyebrow')}</p>
+            <h1>{t('an.title')}</h1>
+            <p className="stars">★★★★★ <small>4.9 · 212 {t('common.reviews')}</small></p>
             <p className="detail-desc">
-              Stop guessing what your skin needs. Our 3D AI analyzer maps hydration, wrinkles,
-              UV damage, pores and pigment with clinical precision — then our beautician treats
-              and prescribes only what your skin actually needs.
+              {t('an.desc')}
             </p>
             <ul className="perks">
-              <li>✓ Hydration · pores · spots map</li>
-              <li>✓ UV &amp; pigment analysis</li>
-              <li>✓ Digital report + routine</li>
+              <li>✓ {t('an.p1')}</li>
+              <li>✓ {t('an.p2')}</li>
+              <li>✓ {t('an.p3')}</li>
             </ul>
             <div className="analyzer-trust">
-              <div><strong>10s</strong><span>scan time</span></div>
-              <div><strong>5-in-1</strong><span>skin metrics</span></div>
-              <div><strong>Free</strong><span>rescan in 30 days</span></div>
+              <div><strong>{t('an.t1v')}</strong><span>{t('an.t1l')}</span></div>
+              <div><strong>{t('an.t2v')}</strong><span>{t('an.t2l')}</span></div>
+              <div><strong>{t('an.t3v')}</strong><span>{t('an.t3l')}</span></div>
             </div>
           </div>
         </div>
@@ -2618,7 +2907,7 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
         <div className="booking-grid">
           <div className="booking-main">
             <div className="booking-block">
-              <h2><span className="step-n">1</span> Choose your package</h2>
+              <h2><span className="step-n">1</span> {t('an.s1')}</h2>
               <div className="pkg-grid">
                 {ANALYZER_PACKAGES.map((p) => (
                   <button
@@ -2627,11 +2916,11 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
                     className={`pkg-card ${pkgId === p.id ? 'selected' : ''}`}
                     onClick={() => setPkgId(p.id)}
                   >
-                    {p.badge && <span className="pkg-badge">{p.badge}</span>}
-                    <strong>{p.name}</strong>
-                    <span className="pkg-price">{formatPrice(p.price)} <small>· {p.mins} min</small></span>
-                    <span className="pkg-desc">{p.desc}</span>
-                    <span className="pkg-points">{p.points.map((x) => <em key={x}>✓ {x}</em>)}</span>
+                    {p.popular && <span className="pkg-badge">{t('an.popular')}</span>}
+                    <strong>{t(`pkg.${p.id}.name`)}</strong>
+                    <span className="pkg-price">{formatPrice(p.price)} <small>· {p.mins} {t('an.mins')}</small></span>
+                    <span className="pkg-desc">{t(`pkg.${p.id}.desc`)}</span>
+                    <span className="pkg-points">{(t(`pkg.${p.id}.points`) || []).map((x) => <em key={x}>✓ {x}</em>)}</span>
                     <span className="pkg-radio" aria-hidden="true" />
                   </button>
                 ))}
@@ -2639,7 +2928,7 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
             </div>
 
             <div className="booking-block">
-              <h2><span className="step-n">2</span> Add a scrub? <small className="muted">— yes, we do scrubs</small></h2>
+              <h2><span className="step-n">2</span> {t('an.s2')} <small className="muted">{t('an.s2note')}</small></h2>
               <div className="scrub-grid">
                 {SCRUB_OPTIONS.map((s) => (
                   <button
@@ -2648,18 +2937,18 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
                     className={`scrub-card ${scrubId === s.id ? 'selected' : ''}`}
                     onClick={() => setScrubId(s.id)}
                   >
-                    <strong>{s.name}</strong>
-                    <span>{s.desc}</span>
-                    <span className="pkg-price">{s.price === 0 ? 'Included / none' : '+' + formatPrice(s.price)}</span>
+                    <strong>{t(`scrub.${s.id}.name`)}</strong>
+                    <span>{t(`scrub.${s.id}.desc`)}</span>
+                    <span className="pkg-price">{s.price === 0 ? t('an.included') : '+' + formatPrice(s.price)}</span>
                   </button>
                 ))}
               </div>
             </div>
 
             <div className="booking-block">
-              <h2><span className="step-n">3</span> Pick a time window</h2>
+              <h2><span className="step-n">3</span> {t('an.s3')}</h2>
               <div className="slot-days">
-                {SLOT_DAYS.map((d) => (
+                {days.map((d) => (
                   <button key={d.key} type="button" className={`chip ${day === d.key ? 'active' : ''}`} onClick={() => setDay(d.key)}>
                     {d.label}<small>{d.sub}</small>
                   </button>
@@ -2677,25 +2966,25 @@ function AnalyzerBookingPage({ onBack, addOrder }) {
 
           <aside className="booking-side">
             <form className="order-form" onSubmit={pay}>
-              <h3>Book &amp; pay</h3>
+              <h3>{t('an.book')}</h3>
               <div className="booking-lines small">
-                <p><span>{pkg.name}</span><span>{formatPrice(pkg.price)}</span></p>
-                <p><span>{scrub.name}</span><span>{scrub.price === 0 ? '—' : formatPrice(scrub.price)}</span></p>
+                <p><span>{pkgName}</span><span>{formatPrice(pkg.price)}</span></p>
+                <p><span>{scrubName}</span><span>{scrub.price === 0 ? '—' : formatPrice(scrub.price)}</span></p>
                 <p><span>Slot</span><span>{dayLabel} · {time}</span></p>
-                <p className="grand"><span>Total</span><span>{formatPrice(total)}</span></p>
+                <p className="grand"><span>{t('detail.total')}</span><span>{formatPrice(total)}</span></p>
               </div>
-              <input name="name" placeholder="Full name" value={form.name} onChange={handleChange} required disabled={processing} />
-              <input name="phone" type="tel" placeholder="Phone number" value={form.phone} onChange={handleChange} required disabled={processing} />
-              <input name="notes" placeholder="Notes (skin concern, allergies…)" value={form.notes} onChange={handleChange} disabled={processing} />
+              <input name="name" placeholder={t('co.name')} value={form.name} onChange={handleChange} required disabled={processing} />
+              <input name="phone" type="tel" placeholder={t('co.phone')} value={form.phone} onChange={handleChange} required disabled={processing} />
+              <input name="notes" placeholder={t('an.notes')} value={form.notes} onChange={handleChange} disabled={processing} />
               <select name="payment" value={form.payment} onChange={handleChange} disabled={processing}>
-                <option value="mobile">Mobile money (M-Pesa, Tigo Pesa, Airtel Money)</option>
-                <option value="card">Credit / Debit card</option>
-                <option value="cod">Pay at store</option>
+                <option value="mobile">{t('pay.mobile')}</option>
+                <option value="card">{t('pay.card')}</option>
+                <option value="cod">{t('pay.store')}</option>
               </select>
               <button type="submit" className={`btn btn-wide ${processing ? 'loading' : ''}`} disabled={processing || !day || !time}>
-                {processing ? (<><span className="spinner" aria-hidden="true" />Processing payment…</>) : (<>Pay {formatPrice(total)} — Confirm booking</>)}
+                {processing ? (<><span className="spinner" aria-hidden="true" />{t('detail.processing')}</>) : (<>{t('an.pay').replace('{total}', formatPrice(total))}</>)}
               </button>
-              <p className="secure-note">🔒 Secure checkout · Free cancellation up to 12h before</p>
+              <p className="secure-note">🔒 Secure checkout · {t('an.cancel')}</p>
             </form>
           </aside>
         </div>
@@ -2711,47 +3000,9 @@ const ADVICE_POSTER =
   'https://i.pinimg.com/736x/89/f7/95/89f7955d46a3aac5d7355c2a4827ac61.jpg'
 
 const ADVICE_GUIDES = [
-  {
-    id: 'coffee',
-    tag: 'Instant glow · 2× / week',
-    title: 'Coffee Scrub for Instant Glow',
-    text: 'Homemade exfoliation that wakes up dull skin in minutes — smoother, brighter, make-up-ready glow.',
-    steps: [
-      'Mix 2 tbsp fine coffee + 1 tbsp honey + 1 tbsp plain yogurt',
-      'Massage gently on damp face for 2 minutes (skip eye area)',
-      'Leave 3 more minutes, rinse with lukewarm water',
-      'Mist + moisturise immediately — glow lasts 2–3 days',
-    ],
-    image: IMG.coffeeScrub,
-  },
-  {
-    id: 'morning',
-    tag: 'Every morning · 10 min',
-    title: 'Everyday 10-Minute Morning Routine',
-    text: 'A fresh natural look before work or class — few products, no stress.',
-    steps: [
-      '0–2 min: gentle cleanse + lukewarm rinse',
-      '2–4 min: rose mist / toner to rehydrate',
-      '4–6 min: vitamin C or B5 serum, thin layer',
-      '6–8 min: light moisturiser (Nivea Soft / Bakina)',
-      '8–10 min: SPF 50 — never skip, even indoors',
-    ],
-    image: IMG.morningRoutine,
-  },
-  {
-    id: 'tips',
-    tag: 'Beginner friendly',
-    title: 'Five Simple Beauty Tips',
-    text: 'Small habits that beat expensive products when you stay consistent.',
-    steps: [
-      'Double-cleanse at night if you wore SPF or makeup',
-      'SPF every morning — #1 anti-age secret',
-      'Sleep 7–8h + 2L water daily for real glow',
-      'Scrub 2× a week, never daily — barrier first',
-      'Track with a free analyzer scan every 30 days',
-    ],
-    image: IMG.beautyTips,
-  },
+  { id: 'coffee', image: IMG.coffeeScrub },
+  { id: 'morning', image: IMG.morningRoutine },
+  { id: 'tips', image: IMG.beautyTips },
 ]
 
 function AdvicePage({ onBack, onOpenAnalyzer }) {
@@ -2780,18 +3031,16 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
             <span className="badge">Morning glow routine — watch</span>
           </div>
           <div className="analyzer-intro">
-            <p className="eyebrow">Free advice · Asma Store, Sinza</p>
-            <h1>Beauty Advice That Actually Works</h1>
-            <p className="stars">★★★★★ <small>4.9 · loved by 3,000+ customers</small></p>
+            <p className="eyebrow">{t('ad.eyebrow')}</p>
+            <h1>{t('ad.title')}</h1>
+            <p className="stars">★★★★★ <small>{t('ad.rating')}</small></p>
             <p className="detail-desc">
-              No guesswork. Start with the coffee scrub for instant glow, keep it with the
-              10-minute morning routine, and lock it in with five simple habits.
-              Need 1-on-1 help? Visit us in Sinza — advice is free with any purchase.
+              {t('ad.desc')}
             </p>
             <ul className="perks">
-              <li>✓ Coffee scrub — instant glow</li>
-              <li>✓ 10-min morning routine</li>
-              <li>✓ 5 simple everyday tips</li>
+              <li>✓ {t('ad.p1')}</li>
+              <li>✓ {t('ad.p2')}</li>
+              <li>✓ {t('ad.p3')}</li>
             </ul>
             <div className="hero-actions" style={{ marginTop: 22 }}>
               <button className="btn" onClick={onOpenAnalyzer}>{t('svc.scan')}</button>
@@ -2808,11 +3057,11 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
                 onClick={() => setLightbox(g)}
                 role="button"
                 tabIndex={0}
-                aria-label={`View ${g.title} fullscreen`}
+                aria-label={t(`ad.${g.id}.title`)}
                 onKeyDown={(e) => e.key === 'Enter' && setLightbox(g)}
               >
-                <img src={g.image} alt={g.title} loading="lazy" />
-                <span className="badge">{g.tag}</span>
+                <img src={g.image} alt={t(`ad.${g.id}.title`)} loading="lazy" />
+                <span className="badge">{t(`ad.${g.id}.tag`)}</span>
                 <span className="zoom-hint" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                     <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
@@ -2820,11 +3069,11 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
                 </span>
               </div>
               <div className="service-body">
-                <span className="category">Guide {i + 1}</span>
-                <h3>{g.title}</h3>
-                <p>{g.text}</p>
+                <span className="category">{t('ad.guide')} {i + 1}</span>
+                <h3>{t(`ad.${g.id}.title`)}</h3>
+                <p>{t(`ad.${g.id}.text`)}</p>
                 <ol className="advice-steps">
-                  {g.steps.map((s) => (
+                  {(t(`ad.${g.id}.steps`) || []).map((s) => (
                     <li key={s}>{s}</li>
                   ))}
                 </ol>
@@ -2836,7 +3085,7 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
         <div className="booking-block store-block">
           <div className="store-grid">
             <div>
-              <p className="eyebrow">Visit us</p>
+              <p className="eyebrow">{t('ad.visit')}</p>
               <h2>Asma Store — Sinza, Dar es Salaam</h2>
               <ul className="contact-details">
                 <li>⌂ Sinza Mori Road, Near Sinza Bus Stand, Dar es Salaam, Tanzania</li>
@@ -2844,30 +3093,30 @@ function AdvicePage({ onBack, onOpenAnalyzer }) {
                 <li>✉ <a href="mailto:hello@asmastore.com">hello@asmastore.com</a></li>
               </ul>
               <div className="hero-actions" style={{ marginTop: 18, marginBottom: 0 }}>
-                <a className="btn btn-small" href="https://wa.me/255616509415?text=Hi%20Asma%20Store!%20I%20need%20beauty%20advice" target="_blank" rel="noreferrer">Chat on WhatsApp</a>
-                <a className="btn btn-small btn-outline" href="https://www.google.com/maps/search/?api=1&query=Sinza+Mori+Road+Dar+es+Salaam" target="_blank" rel="noreferrer">Open in Maps</a>
+                <a className="btn btn-small" href="https://wa.me/255616509415?text=Hi%20Asma%20Store!%20I%20need%20beauty%20advice" target="_blank" rel="noreferrer">{t('ad.chat')}</a>
+                <a className="btn btn-small btn-outline" href="https://www.google.com/maps/search/?api=1&query=Sinza+Mori+Road+Dar+es+Salaam" target="_blank" rel="noreferrer">{t('ad.maps')}</a>
               </div>
             </div>
             <div className="hours-card">
-              <h3>Opening hours</h3>
-              <p><span>Monday – Saturday</span><span>09:00 – 20:00</span></p>
-              <p><span>Friday break</span><span>12:30 – 14:00</span></p>
-              <p><span>Sunday</span><span>12:00 – 18:00</span></p>
-              <p className="ship-hint">Walk-ins welcome · Scans: book ahead on busy Saturdays</p>
+              <h3>{t('ad.hours')}</h3>
+              <p><span>{t('ad.mon')}</span><span>09:00 – 20:00</span></p>
+              <p><span>{t('ad.fri')}</span><span>12:30 – 14:00</span></p>
+              <p><span>{t('ad.sun')}</span><span>12:00 – 18:00</span></p>
+              <p className="ship-hint">{t('ad.walk')}</p>
             </div>
           </div>
         </div>
       </div>
       {lightbox && (
-        <div className="lightbox" onClick={() => setLightbox(null)} role="dialog" aria-modal="true" aria-label={lightbox.title}>
-          <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label="Close fullscreen image">
+        <div className="lightbox" onClick={() => setLightbox(null)} role="dialog" aria-modal="true" aria-label={t(`ad.${lightbox.id}.title`)}>
+          <button className="lightbox-close" onClick={() => setLightbox(null)} aria-label={t('common.close')}>
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
               <path d="M18 6 6 18M6 6l12 12" />
             </svg>
           </button>
           <figure className="lightbox-fig" onClick={(e) => e.stopPropagation()}>
-            <img src={lightbox.image} alt={lightbox.title} />
-            <figcaption>{lightbox.title} — {lightbox.tag}</figcaption>
+            <img src={lightbox.image} alt={t(`ad.${lightbox.id}.title`)} />
+            <figcaption>{t(`ad.${lightbox.id}.title`)} — {t(`ad.${lightbox.id}.tag`)}</figcaption>
           </figure>
         </div>
       )}
@@ -2929,8 +3178,8 @@ function Contact() {
         </div>
         {sent ? (
           <div className="form-success">
-            <h3>Thank you, {form.name || 'beautiful'}! 💌</h3>
-            <p>Your message is on its way. We'll get back to you shortly.</p>
+            <h3>{t('ct.ok').replace('{name}', form.name || 'beautiful')}</h3>
+            <p>{t('ct.oksub')}</p>
           </div>
         ) : (
           <form className="contact-form" onSubmit={handleSubmit}>
@@ -2945,17 +3194,21 @@ function Contact() {
   )
 }
 
-function Footer() {
+function Footer({ onHome, onProducts, onSection }) {
   const { t } = useLang()
+  const go = (e, fn) => {
+    e.preventDefault()
+    fn()
+  }
   return (
     <footer className="footer">
       <div className="container footer-inner">
-        <a href="#top" className="logo">Asma Store<span>.</span></a>
+        <a href="#top" className="logo" onClick={(e) => go(e, onHome)}>Asma Store<span>.</span></a>
         <nav className="footer-links">
-          <a href="#about">{t('foot.about')}</a>
-          <a href="#products">{t('foot.products')}</a>
-          <a href="#reviews">{t('foot.reviews')}</a>
-          <a href="#contact">{t('foot.contact')}</a>
+          <a href="#about" onClick={(e) => go(e, () => onSection('about'))}>{t('foot.about')}</a>
+          <a href="#products" onClick={(e) => go(e, onProducts)}>{t('foot.products')}</a>
+          <a href="#reviews" onClick={(e) => go(e, () => onSection('reviews'))}>{t('foot.reviews')}</a>
+          <a href="#contact" onClick={(e) => go(e, () => onSection('contact'))}>{t('foot.contact')}</a>
         </nav>
         <p>© {new Date().getFullYear()} Asma Store. {t('foot.rights')}</p>
       </div>
@@ -2972,6 +3225,7 @@ export default function App() {
   const [selectedPerfumeSet, setSelectedPerfumeSet] = useState(null)
   const [selectedOrder, setSelectedOrder] = useState(null)
   const [authMode, setAuthMode] = useState('login')
+  const [glowKind, setGlowKind] = useState(null)
 
   const [user, setUser] = useState(() => loadStore('lumiere_user'))
   const [orders, setOrders] = useState(() => loadStore('lumiere_orders') || [])
@@ -3027,6 +3281,15 @@ export default function App() {
   const goHome = () => {
     setView('home')
     window.scrollTo({ top: 0 })
+  }
+
+  const goSection = (id) => {
+    setView('home')
+    setTimeout(() => {
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+      else window.scrollTo({ top: 0 })
+    }, 90)
   }
 
   const openProduct = (p, returnTo) => {
@@ -3187,7 +3450,7 @@ export default function App() {
   } else {
     content = (
       <>
-        <Hero />
+        <Hero onGlow={setGlowKind} />
         <Features />
         <Services onOpenAnalyzer={openAnalyzer} onOpenAdvice={openAdvice} />
         <Products onAdd={addToBag} onSelect={(p) => openProduct(p, 'home')} cartItems={cart} onSeeAll={openProducts} />
@@ -3203,7 +3466,15 @@ export default function App() {
     <LangCtx.Provider value={{ lang, setLang: changeLang, t }}>
       {navbar}
       <main>{content}</main>
-      <Footer />
+      <Footer onHome={goHome} onProducts={openProducts} onSection={goSection} />
+      {glowKind && (
+        <GlowModal
+          kind={glowKind}
+          onClose={() => setGlowKind(null)}
+          onProduct={(p) => { setGlowKind(null); openProduct(p, 'home') }}
+          onSet={(s) => { setGlowKind(null); openSet(s) }}
+        />
+      )}
       <div className="corner-stack">
         {cartCount > 0 && view !== 'cart' && (
           <button className="floating-cart" onClick={openCart} aria-label={`${t('corner.cart')}, ${cartCount} ${t('corner.items')}`}>
@@ -3251,7 +3522,7 @@ export default function App() {
 }
 
 function SetsPreview({ onSeeAll, onSelectSet }) {
-  const { t } = useLang()
+  const { t, lang } = useLang()
   return (
     <section className="products section" id="sets-preview" style={{ background: 'var(--blush)' }}>
       <div className="container">
@@ -3260,30 +3531,33 @@ function SetsPreview({ onSeeAll, onSelectSet }) {
           <h2>{t('home.setsTitle')}</h2>
         </div>
         <div className="product-grid">
-          {SETS.slice(0, 3).map((set) => (
-            <article
-              key={set.id}
-              className="product-card set-card"
-              onClick={() => onSelectSet(set)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && onSelectSet(set)}
-            >
-              <div className="product-img">
-                <img src={set.image} alt={set.name} loading="lazy" />
-                <span className="badge">{set.productIds.length} {t('set.products')}</span>
-              </div>
-              <div className="product-body">
-                <span className="category">Set</span>
-                <h3>{set.name}</h3>
-                <p>{set.tagline}</p>
-                <div className="product-foot">
-                  <span className="price">{formatPrice(set.price)}</span>
-                  <span className="view-set">{t('sets.view')}</span>
+          {SETS.slice(0, 3).map((raw) => {
+            const set = locS(raw, lang)
+            return (
+              <article
+                key={set.id}
+                className="product-card set-card"
+                onClick={() => onSelectSet(raw)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && onSelectSet(raw)}
+              >
+                <div className="product-img">
+                  <img src={set.image} alt={set.name} loading="lazy" />
+                  <span className="badge">{set.productIds.length} {t('set.products')}</span>
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="product-body">
+                  <span className="category">{t('set.word')}</span>
+                  <h3>{set.name}</h3>
+                  <p>{set.tagline}</p>
+                  <div className="product-foot">
+                    <span className="price">{formatPrice(set.price)}</span>
+                    <span className="view-set">{t('sets.view')}</span>
+                  </div>
+                </div>
+              </article>
+            )
+          })}
         </div>
         <div style={{ textAlign: 'center', marginTop: 40 }}>
           <button className="btn btn-outline" onClick={onSeeAll}>{t('home.viewAllSets')}</button>
