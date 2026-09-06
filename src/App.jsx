@@ -57,7 +57,7 @@ const STR = {
     'about.eyebrow': 'About Us', 'about.title': 'Luxury beauty, honestly made',
     'rev.eyebrow': 'Reviews', 'rev.title': 'Loved by thousands',
     'lang.label': 'Language', 'lang.en': 'English', 'lang.sw': 'Kiswahili',
-    'share.share': 'Share', 'share.copied': 'Link copied!',
+    'share.share': 'Share', 'share.copied': 'Link copied!', 'share.shop': 'Tap to shop',
     'corner.cart': 'Open cart', 'corner.items': 'items',
     'detail.backShop': '← Back to shop', 'detail.backSets': '← Back to sets', 'detail.backPerfume': '← Back to perfumes',
     'detail.qty': 'Quantity', 'detail.total': 'Total', 'detail.place': 'Place Order',
@@ -196,7 +196,7 @@ const STR = {
     'about.eyebrow': 'Kuhusu Sisi', 'about.title': 'Urembo wa kifahari, wa kweli',
     'rev.eyebrow': 'Maoni', 'rev.title': 'Wanapendwa na maelfu',
     'lang.label': 'Lugha', 'lang.en': 'English', 'lang.sw': 'Kiswahili',
-    'share.share': 'Shiriki', 'share.copied': 'Link imenakiliwa!',
+    'share.share': 'Shiriki', 'share.copied': 'Link imenakiliwa!', 'share.shop': 'Bonyeza kununua',
     'corner.cart': 'Fungua kikapu', 'corner.items': 'vitu',
     'detail.backShop': '← Rudi dukani', 'detail.backSets': '← Rudi kwenye seti', 'detail.backPerfume': '← Rudi kwenye manukato',
     'detail.qty': 'Idadi', 'detail.total': 'Jumla', 'detail.place': 'Weka Oda',
@@ -1494,8 +1494,8 @@ function About() {
 /* ---------- Share: image + details + price + shop link ---------- */
 const itemUrl = (kind, id) => `${window.location.origin}${window.location.pathname}#${kind}-${id}`
 
-async function shareItem({ title, text, image, url }) {
-  const fullText = `${text}\n${url}`
+async function shareItem({ title, text, linkLine, image, url }) {
+  const fullText = `${text}\n${linkLine}\n${image}`
   if (typeof navigator !== 'undefined' && navigator.share) {
     let files
     try {
@@ -1527,9 +1527,10 @@ function ShareBtn({ title, price, desc, image, kind, id }) {
   const onShare = async (e) => {
     e.stopPropagation()
     const url = itemUrl(kind, id)
-    const text = `${title}\n${price}\n${desc}\n\n${image}`
-    const full = `${text}\n${url}`
-    const r = await shareItem({ title, text, image, url })
+    const text = `${title}\n${price}\n${desc}`
+    const linkLine = `${t('share.shop')}: ${url}`
+    const full = `${text}\n${linkLine}\n${image}`
+    const r = await shareItem({ title, text, linkLine, image, url })
     if (r === 'fallback') {
       try {
         await navigator.clipboard.writeText(full)
