@@ -57,6 +57,7 @@ const STR = {
     'about.eyebrow': 'About Us', 'about.title': 'Luxury beauty, honestly made',
     'rev.eyebrow': 'Reviews', 'rev.title': 'Loved by thousands',
     'lang.label': 'Language', 'lang.en': 'English', 'lang.sw': 'Kiswahili',
+    'share.share': 'Share', 'share.copied': 'Link copied!',
     'corner.cart': 'Open cart', 'corner.items': 'items',
     'detail.backShop': '← Back to shop', 'detail.backSets': '← Back to sets', 'detail.backPerfume': '← Back to perfumes',
     'detail.qty': 'Quantity', 'detail.total': 'Total', 'detail.place': 'Place Order',
@@ -195,6 +196,7 @@ const STR = {
     'about.eyebrow': 'Kuhusu Sisi', 'about.title': 'Urembo wa kifahari, wa kweli',
     'rev.eyebrow': 'Maoni', 'rev.title': 'Wanapendwa na maelfu',
     'lang.label': 'Lugha', 'lang.en': 'English', 'lang.sw': 'Kiswahili',
+    'share.share': 'Shiriki', 'share.copied': 'Link imenakiliwa!',
     'corner.cart': 'Fungua kikapu', 'corner.items': 'vitu',
     'detail.backShop': '← Rudi dukani', 'detail.backSets': '← Rudi kwenye seti', 'detail.backPerfume': '← Rudi kwenye manukato',
     'detail.qty': 'Idadi', 'detail.total': 'Jumla', 'detail.place': 'Weka Oda',
@@ -1489,6 +1491,80 @@ function About() {
   )
 }
 
+/* ---------- Share: image + details + price + shop link ---------- */
+const itemUrl = (kind, id) => `${window.location.origin}${window.location.pathname}#${kind}-${id}`
+
+async function shareItem({ title, text, image, url }) {
+  const fullText = `${text}\n${url}`
+  if (typeof navigator !== 'undefined' && navigator.share) {
+    let files
+    try {
+      const res = await fetch(image, { mode: 'cors' })
+      if (res.ok) {
+        const blob = await res.blob()
+        if (blob && blob.size > 0) {
+          const file = new File([blob], 'product.jpg', { type: blob.type || 'image/jpeg' })
+          if (!navigator.canShare || navigator.canShare({ files: [file] })) files = [file]
+        }
+      }
+    } catch {
+      /* image attach failed — share text + link */
+    }
+    try {
+      if (files) await navigator.share({ title, text: fullText, url, files })
+      else await navigator.share({ title, text: fullText, url })
+      return 'shared'
+    } catch (err) {
+      if (err && err.name === 'AbortError') return 'cancelled'
+    }
+  }
+  return 'fallback'
+}
+
+function ShareBtn({ title, price, desc, image, kind, id }) {
+  const { t } = useLang()
+  const [done, setDone] = useState(false)
+  const onShare = async (e) => {
+    e.stopPropagation()
+    const url = itemUrl(kind, id)
+    const text = `${title}\n${price}\n${desc}\n\n${image}`
+    const full = `${text}\n${url}`
+    const r = await shareItem({ title, text, image, url })
+    if (r === 'fallback') {
+      try {
+        await navigator.clipboard.writeText(full)
+      } catch {
+        /* clipboard unavailable */
+      }
+      window.open(`https://wa.me/?text=${encodeURIComponent(full)}`, '_blank', 'noreferrer')
+      setDone(true)
+      setTimeout(() => setDone(false), 2200)
+    }
+  }
+  return (
+    <button
+      type="button"
+      className={`share-btn${done ? ' done' : ''}`}
+      aria-label={done ? t('share.copied') : t('share.share')}
+      title={t('share.share')}
+      onClick={onShare}
+    >
+      {done ? (
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M20 6 9 17l-5-5" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4" />
+        </svg>
+      )}
+    </button>
+  )
+}
+
 /* ---------- Product cards & detail ---------- */
 function ProductCard({ product, onAdd, onSelect, inBag }) {
   const [wished, setWished] = useState(false)
@@ -1519,6 +1595,7 @@ function ProductCard({ product, onAdd, onSelect, inBag }) {
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
           </svg>
         </button>
+        <ShareBtn title={product.name} price={formatPrice(product.price)} desc={product.desc} image={product.image} kind={product.brand ? 'f' : 'p'} id={product.id} />
       </div>
       <div className="product-body">
         <span className="category">{catL(product.category, t)}</span>
@@ -1931,6 +2008,7 @@ function PerfumeCard({ product, onAdd, onSelect, inBag }) {
             <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
           </svg>
         </button>
+        <ShareBtn title={product.name} price={formatPrice(product.price)} desc={product.desc} image={product.image} kind="f" id={product.id} />
       </div>
       <div className="product-body">
         <span className="category">{product.brand} · {audL(product.audience, t)}</span>
@@ -2044,10 +2122,11 @@ function PerfumePage({ onAdd, onSelect, onSelectSet, cartItems }) {
                   tabIndex={0}
                   onKeyDown={(e) => e.key === 'Enter' && onSelectSet(raw)}
                 >
-                  <div className="product-img">
-                    <img src={set.image} alt={set.name} loading="lazy" />
-                    <span className="badge">{audL(set.audience, t)} · {set.productIds.length} pcs</span>
-                  </div>
+                <div className="product-img">
+                  <img src={set.image} alt={set.name} loading="lazy" />
+                  <span className="badge">{audL(set.audience, t)} · {set.productIds.length} pcs</span>
+                  <ShareBtn title={set.name} price={formatPrice(set.price)} desc={`${set.tagline}. ${set.saveNote}.`} image={set.image} kind="ps" id={set.id} />
+                </div>
                   <div className="product-body">
                     <span className="category">{t('nav.perfume')} {t('set.word')} · {audL(set.audience, t)}</span>
                     <h3>{set.name}</h3>
@@ -2170,10 +2249,11 @@ function SetsPage({ onSelectSet }) {
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && onSelectSet(raw)}
               >
-                <div className="product-img">
-                  <img src={set.image} alt={set.name} loading="lazy" />
-                  <span className="badge">{set.productIds.length} {t('set.products')}</span>
-                </div>
+              <div className="product-img">
+                <img src={set.image} alt={set.name} loading="lazy" />
+                <span className="badge">{set.productIds.length} {t('set.products')}</span>
+                <ShareBtn title={set.name} price={formatPrice(set.price)} desc={`${set.tagline}. ${set.saveNote}.`} image={set.image} kind="s" id={set.id} />
+              </div>
                 <div className="product-body">
                   <span className="category">{t('set.word')}</span>
                   <h3>{set.name}</h3>
@@ -3327,11 +3407,13 @@ export default function App() {
 
   const goHome = () => {
     setView('home')
+    setHash('')
     window.scrollTo({ top: 0 })
   }
 
   const goSection = (id) => {
     setView('home')
+    setHash('')
     setTimeout(() => {
       const el = document.getElementById(id)
       if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -3339,57 +3421,78 @@ export default function App() {
     }, 90)
   }
 
+  const setHash = (h) => {
+    try {
+      const url = h
+        ? `${window.location.pathname}${window.location.search}#${h}`
+        : `${window.location.pathname}${window.location.search}`
+      window.history.replaceState(null, '', url)
+    } catch {
+      /* ignore */
+    }
+  }
+
   const openProduct = (p, returnTo) => {
     setSelectedProduct(p)
     setDetailReturn(returnTo || view)
     setView('detail')
+    setHash(`${p.brand ? 'f' : 'p'}-${p.id}`)
     window.scrollTo({ top: 0 })
   }
 
   const openProducts = () => {
     setView('products')
+    setHash('')
     window.scrollTo({ top: 0 })
   }
 
   const openPerfume = () => {
     setView('perfume')
+    setHash('')
     window.scrollTo({ top: 0 })
   }
 
   const openPerfumeSet = (s) => {
     setSelectedPerfumeSet(s)
     setView('perfumeSetDetail')
+    setHash(`ps-${s.id}`)
     window.scrollTo({ top: 0 })
   }
 
   const openSets = () => {
     setView('sets')
+    setHash('')
     window.scrollTo({ top: 0 })
   }
 
   const openSet = (s) => {
     setSelectedSet(s)
     setView('setDetail')
+    setHash(`s-${s.id}`)
     window.scrollTo({ top: 0 })
   }
 
   const openAnalyzer = () => {
     setView('analyzer')
+    setHash('')
     window.scrollTo({ top: 0 })
   }
 
   const openAdvice = () => {
     setView('advice')
+    setHash('')
     window.scrollTo({ top: 0 })
   }
 
   const openCart = () => {
     setView('cart')
+    setHash('')
     window.scrollTo({ top: 0 })
   }
 
   const openOrders = () => {
     setView('orders')
+    setHash('')
     window.scrollTo({ top: 0 })
   }
 
@@ -3401,8 +3504,43 @@ export default function App() {
 
   const continueShopping = () => {
     setView(['products', 'perfume'].includes(detailReturn) ? detailReturn : 'home')
+    setHash('')
     window.scrollTo({ top: 0 })
   }
+
+  useEffect(() => {
+    const openFromHash = () => {
+      const m = /^#(p|f|s|ps)-(\d+)$/.exec(window.location.hash || '')
+      if (!m) return
+      const id = Number(m[2])
+      if (m[1] === 'p' || m[1] === 'f') {
+        const p = [...PRODUCTS, ...PERFUMES].find((x) => x.id === id)
+        if (p && (!selectedProduct || selectedProduct.id !== id || view !== 'detail')) {
+          setSelectedProduct(p)
+          setDetailReturn('home')
+          setView('detail')
+          window.scrollTo({ top: 0 })
+        }
+      } else if (m[1] === 's') {
+        const s = SETS.find((x) => x.id === id)
+        if (s && (!selectedSet || selectedSet.id !== id || view !== 'setDetail')) {
+          setSelectedSet(s)
+          setView('setDetail')
+          window.scrollTo({ top: 0 })
+        }
+      } else if (m[1] === 'ps') {
+        const s = PERFUME_SETS.find((x) => x.id === id)
+        if (s && (!selectedPerfumeSet || selectedPerfumeSet.id !== id || view !== 'perfumeSetDetail')) {
+          setSelectedPerfumeSet(s)
+          setView('perfumeSetDetail')
+          window.scrollTo({ top: 0 })
+        }
+      }
+    }
+    window.addEventListener('hashchange', openFromHash)
+    openFromHash()
+    return () => window.removeEventListener('hashchange', openFromHash)
+  })
 
   const navbar = (
     <Navbar
@@ -3589,10 +3727,11 @@ function SetsPreview({ onSeeAll, onSelectSet }) {
                 tabIndex={0}
                 onKeyDown={(e) => e.key === 'Enter' && onSelectSet(raw)}
               >
-                <div className="product-img">
-                  <img src={set.image} alt={set.name} loading="lazy" />
-                  <span className="badge">{set.productIds.length} {t('set.products')}</span>
-                </div>
+              <div className="product-img">
+                <img src={set.image} alt={set.name} loading="lazy" />
+                <span className="badge">{set.productIds.length} {t('set.products')}</span>
+                <ShareBtn title={set.name} price={formatPrice(set.price)} desc={`${set.tagline}. ${set.saveNote}.`} image={set.image} kind="s" id={set.id} />
+              </div>
                 <div className="product-body">
                   <span className="category">{t('set.word')}</span>
                   <h3>{set.name}</h3>

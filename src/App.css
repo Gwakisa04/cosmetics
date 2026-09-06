@@ -626,6 +626,27 @@ a { text-decoration: none; color: inherit; }
 .wish-btn:hover { transform: scale(1.12); }
 .wish-btn.active { color: #e0245e; }
 
+.share-btn {
+  position: absolute;
+  top: 54px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--rose-dark);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+  z-index: 2;
+}
+
+.share-btn:hover { transform: scale(1.12); }
+.share-btn.done { background: var(--rose-dark); color: #fff; }
+
 .add-btn {
   display: inline-flex;
   align-items: center;
@@ -2710,6 +2731,14 @@ a { text-decoration: none; color: inherit; }
     width: 30px;
     height: 30px;
     top: 8px;
+    right: 8px;
+  }
+
+  .product-grid.view-grid .share-btn,
+  #products .share-btn {
+    width: 30px;
+    height: 30px;
+    top: 44px;
     right: 8px;
   }
 
