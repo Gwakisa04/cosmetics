@@ -120,13 +120,27 @@ a { text-decoration: none; color: inherit; }
 }
 
 .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--rose-dark);
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
 }
 
-.logo span { color: var(--gold); }
+.brand-logo {
+  height: 40px;
+  width: auto;
+  max-width: 220px;
+  display: block;
+}
+
+.logo-footer .brand-logo {
+  height: 36px;
+}
+
+.auth-logo .brand-logo {
+  height: 46px;
+  max-width: 250px;
+  margin-inline: auto;
+}
 
 .nav-links {
   display: flex;
@@ -2227,18 +2241,12 @@ a { text-decoration: none; color: inherit; }
 }
 
 .auth-logo {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 1.35rem;
-  color: #4a2440;
   margin-bottom: 18px;
+  line-height: 0;
 }
-.auth-logo span:last-child { color: #4a2440; }
-.auth-mark { display: inline-grid; place-items: center; }
 
 .auth-left h1 {
   font-family: 'Poppins', system-ui, sans-serif;
@@ -2734,6 +2742,11 @@ a { text-decoration: none; color: inherit; }
   .hero-stats { gap: 24px; flex-wrap: wrap; }
 
   .hamburger { display: flex; }
+
+  .brand-logo {
+    height: 34px;
+    max-width: 168px;
+  }
 
   .nav-links {
     position: fixed;

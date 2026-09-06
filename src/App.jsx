@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from 'react'
+import { useState, useEffect, createContext, useContext, useId } from 'react'
 import './App.css'
 
 /* ---------- Languages: English / Kiswahili ---------- */
@@ -1165,6 +1165,60 @@ function loadStore(key) {
   }
 }
 
+/* ---------- Brand logo (Asma Store monogram lockup) ---------- */
+function BrandLogo({ light = false }) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, '')
+  const berry = `${uid}-berry`
+  const charcoal = `${uid}-charcoal`
+  const glow = `${uid}-glow`
+  return (
+    <svg className="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 120" role="img" aria-label="Asma Store — Clean Beauty & Cosmetics">
+      <defs>
+        <linearGradient id={berry} x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#8B263E" />
+          <stop offset="50%" stopColor="#A8324A" />
+          <stop offset="100%" stopColor="#C4435D" />
+        </linearGradient>
+        <linearGradient id={charcoal} x1="0%" y1="0%" x2="100%" y2="0%">
+          {light ? (
+            <>
+              <stop offset="0%" stopColor="#FFFFFF" />
+              <stop offset="100%" stopColor="#E9D5DC" />
+            </>
+          ) : (
+            <>
+              <stop offset="0%" stopColor="#221F20" />
+              <stop offset="100%" stopColor="#3A3537" />
+            </>
+          )}
+        </linearGradient>
+        <filter id={glow} x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="1.5" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+      </defs>
+      <g transform="translate(10, 10)">
+        <g transform="translate(10, 0)">
+          <path d="M 50 10 A 40 40 0 1 0 90 50" fill="none" stroke={`url(#${berry})`} strokeWidth="2.5" strokeLinecap="round" opacity="0.4" />
+          <path d="M 50 18 L 30 75 Q 38 78 48 68 Q 62 55 45 42 Q 30 30 52 18 Z" fill="none" stroke={`url(#${berry})`} strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+          <line x1="38" y1="52" x2="58" y2="52" stroke={`url(#${berry})`} strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M 58 22 C 68 15 78 20 75 32 C 65 35 58 28 58 22 Z" fill="#6B705C" opacity="0.9" />
+          <polygon points="76,14 78,20 84,22 78,24 76,30 74,24 68,22 74,20" fill={`url(#${berry})`} filter={`url(#${glow})`} />
+        </g>
+        <g transform="translate(125, 0)">
+          <text x="0" y="52" fontFamily="'Playfair Display', 'Didot', 'Georgia', serif" fontSize="44" fontWeight="600" letterSpacing="4" fill={`url(#${berry})`}>
+            Asma Store
+          </text>
+          <line x1="2" y1="68" x2="270" y2="68" stroke={light ? '#E9D5DC' : '#9C887B'} strokeWidth="1" opacity="0.35" />
+          <text x="3" y="86" fontFamily="'Montserrat', 'Helvetica', 'Arial', sans-serif" fontSize="11" fontWeight="400" letterSpacing="7" fill={`url(#${charcoal})`} opacity="0.8">
+            CLEAN BEAUTY &amp; COSMETICS
+          </text>
+        </g>
+      </g>
+    </svg>
+  )
+}
+
 /* ---------- Navbar ---------- */
 function Navbar({ cartCount, user, onCart, onHome, onProducts, onPerfume, onSets, onOrders, onAuth, onLogout }) {
   const [open, setOpen] = useState(false)
@@ -1192,7 +1246,7 @@ function Navbar({ cartCount, user, onCart, onHome, onProducts, onPerfume, onSets
             setMenuOpen(false)
           }}
         >
-          Asma Store<span>.</span>
+          <BrandLogo />
         </a>
         <nav className={open ? 'nav-links open' : 'nav-links'}>
           {navLinks.map((l) => (
@@ -2575,14 +2629,7 @@ function AuthPage({ mode, onSwitchMode, onSuccess, onBack }) {
                 onBack()
               }}
             >
-              <span className="auth-mark" aria-hidden="true">
-                <svg viewBox="0 0 32 32" width="30" height="30" fill="none">
-                  <path d="M7 25V9.5C7 8 8 7 9.5 7H14v4H10.5v14H7Z" fill="#4a2440" />
-                  <path d="M18 25V12.5C18 11 19 10 20.5 10H25v4h-3.5v11H18Z" fill="#4a2440" />
-                  <circle cx="22.8" cy="7.4" r="2.2" fill="#4a2440" />
-                </svg>
-              </span>
-              Asma Store<span>.</span>
+              <BrandLogo />
             </a>
 
             <h1>{isRegister ? t('auth.create') : t('auth.welcome')}</h1>
@@ -3203,7 +3250,7 @@ function Footer({ onHome, onProducts, onSection }) {
   return (
     <footer className="footer">
       <div className="container footer-inner">
-        <a href="#top" className="logo" onClick={(e) => go(e, onHome)}>Asma Store<span>.</span></a>
+        <a href="#top" className="logo logo-footer" onClick={(e) => go(e, onHome)}><BrandLogo light /></a>
         <nav className="footer-links">
           <a href="#about" onClick={(e) => go(e, () => onSection('about'))}>{t('foot.about')}</a>
           <a href="#products" onClick={(e) => go(e, onProducts)}>{t('foot.products')}</a>
