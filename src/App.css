@@ -126,9 +126,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 .brand-logo {
-  height: 40px;
+  height: 54px;
   width: auto;
-  max-width: 220px;
+  max-width: 300px;
   display: block;
 }
 
@@ -2744,8 +2744,8 @@ a { text-decoration: none; color: inherit; }
   .hamburger { display: flex; }
 
   .brand-logo {
-    height: 34px;
-    max-width: 168px;
+    height: 42px;
+    max-width: 210px;
   }
 
   .nav-links {
