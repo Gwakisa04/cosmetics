@@ -58,6 +58,8 @@ const STR = {
     'rev.eyebrow': 'Reviews', 'rev.title': 'Loved by thousands',
     'lang.label': 'Language', 'lang.en': 'English', 'lang.sw': 'Kiswahili',
     'share.share': 'Share', 'share.copied': 'Link copied!', 'share.shop': 'Tap to shop',
+    'share.wa': 'WhatsApp', 'share.copy': 'Copy details', 'share.save': 'Save photo',
+    'share.hint': 'Tip: in WhatsApp choose Status, or attach the saved photo on Instagram.',
     'corner.cart': 'Open cart', 'corner.items': 'items',
     'detail.backShop': '← Back to shop', 'detail.backSets': '← Back to sets', 'detail.backPerfume': '← Back to perfumes',
     'detail.qty': 'Quantity', 'detail.total': 'Total', 'detail.place': 'Place Order',
@@ -197,6 +199,8 @@ const STR = {
     'rev.eyebrow': 'Maoni', 'rev.title': 'Wanapendwa na maelfu',
     'lang.label': 'Lugha', 'lang.en': 'English', 'lang.sw': 'Kiswahili',
     'share.share': 'Shiriki', 'share.copied': 'Link imenakiliwa!', 'share.shop': 'Bonyeza kununua',
+    'share.wa': 'WhatsApp', 'share.copy': 'Nakili maelezo', 'share.save': 'Hifadhi picha',
+    'share.hint': 'Kidokezo: WhatsApp chagua Status, au ambatanisha picha kwenye Instagram.',
     'corner.cart': 'Fungua kikapu', 'corner.items': 'vitu',
     'detail.backShop': '← Rudi dukani', 'detail.backSets': '← Rudi kwenye seti', 'detail.backPerfume': '← Rudi kwenye manukato',
     'detail.qty': 'Idadi', 'detail.total': 'Jumla', 'detail.place': 'Weka Oda',
@@ -1523,46 +1527,92 @@ async function shareItem({ title, text, linkLine, image, url }) {
 
 function ShareBtn({ title, price, desc, image, kind, id }) {
   const { t } = useLang()
-  const [done, setDone] = useState(false)
+  const [open, setOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const url = itemUrl(kind, id)
+  const text = `${title}\n${price}\n${desc}`
+  const linkLine = `${t('share.shop')}: ${url}`
+  const full = `${text}\n${linkLine}\n${image}`
+  const waHref = `https://wa.me/?text=${encodeURIComponent(full)}`
   const onShare = async (e) => {
     e.stopPropagation()
-    const url = itemUrl(kind, id)
-    const text = `${title}\n${price}\n${desc}`
-    const linkLine = `${t('share.shop')}: ${url}`
-    const full = `${text}\n${linkLine}\n${image}`
+    setCopied(false)
     const r = await shareItem({ title, text, linkLine, image, url })
-    if (r === 'fallback') {
-      try {
-        await navigator.clipboard.writeText(full)
-      } catch {
-        /* clipboard unavailable */
-      }
-      window.open(`https://wa.me/?text=${encodeURIComponent(full)}`, '_blank', 'noreferrer')
-      setDone(true)
-      setTimeout(() => setDone(false), 2200)
+    if (r === 'fallback') setOpen(true)
+  }
+  const close = (e) => {
+    if (e) e.stopPropagation()
+    setOpen(false)
+  }
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+  }, [open])
+  const copy = async (e) => {
+    e.stopPropagation()
+    try {
+      await navigator.clipboard.writeText(full)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      /* clipboard unavailable */
     }
   }
   return (
-    <button
-      type="button"
-      className={`share-btn${done ? ' done' : ''}`}
-      aria-label={done ? t('share.copied') : t('share.share')}
-      title={t('share.share')}
-      onClick={onShare}
-    >
-      {done ? (
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M20 6 9 17l-5-5" />
-        </svg>
-      ) : (
+    <>
+      <button
+        type="button"
+        className="share-btn"
+        aria-label={t('share.share')}
+        title={t('share.share')}
+        onClick={onShare}
+      >
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <circle cx="18" cy="5" r="3" />
           <circle cx="6" cy="12" r="3" />
           <circle cx="18" cy="19" r="3" />
           <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4" />
         </svg>
+      </button>
+      {open && (
+        <div className="share-sheet" onClick={close} role="dialog" aria-modal="true" aria-label={t('share.share')}>
+          <div className="share-card" onClick={(e) => e.stopPropagation()}>
+            <button className="lightbox-close share-close" onClick={close} aria-label={t('common.close')}>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+            <div className="share-preview">
+              <img src={image} alt={title} />
+              <div className="share-preview-info">
+                <strong>{title}</strong>
+                <span>{price}</span>
+              </div>
+            </div>
+            <a className="btn btn-wide" href={waHref} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+              {t('share.wa')}
+            </a>
+            <div className="share-row2">
+              <button type="button" className="btn btn-outline btn-small" onClick={copy}>
+                {copied ? `✓ ${t('share.copied')}` : t('share.copy')}
+              </button>
+              <a className="btn btn-outline btn-small" href={image} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                {t('share.save')}
+              </a>
+            </div>
+            <p className="secure-note">{t('share.hint')}</p>
+          </div>
+        </div>
       )}
-    </button>
+    </>
   )
 }
 
